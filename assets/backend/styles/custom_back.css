@@ -1,0 +1,39 @@
+textarea{
+	resize: none;
+}
+
+label.error{
+	color: #ff1744;
+}
+
+select.error, input.error, textarea.error{
+	color: inherit;
+}
+nav.nav_breadcrumb{
+	background: #e9ecef;
+	overflow: hidden;
+	border-radius: 3px;
+}
+nav .breadcrumb{
+	float: right;
+	margin: auto;
+	background: transparent;
+}
+
+.switch label:before{
+	background: #28a745;
+}
+
+.switch.danger input[type=checkbox]:checked+label:before {
+	background: #ea4335;
+	border-color: #ddd;
+}
+
+.switch #label_featured:before{
+	background: #ea4335;
+}
+
+.switch.danger input[type=checkbox]:checked+#label_featured:before {
+	background: #28a745;
+	 border-color: #ddd;
+}
