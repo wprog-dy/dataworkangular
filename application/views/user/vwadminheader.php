@@ -56,12 +56,10 @@
 	</div>
 	<!-- /.float-left -->
 	<div class="float-right">
-		
 		<div class="ico-item">
 			<img src="<?php echo HTTP_IMAGES_PATH_ADMIN; ?>avatar-sm-1.jpg" alt="" class="ico-img">
 			<ul class="sub-ico-item">
-				<li><a href="<?= base_url('user/'.$this->session->userdata('user_type').'/form/'.$this->session->userdata('id')); ?>">Settings</a></li>
-				<li><a href="#">Blog</a></li>
+				<li><a href="<?= base_url('user/'.$this->session->userdata('user_type').'/form/'.$this->session->userdata('id')); ?>">My Profile</a></li>
 				<li><a class="js__logout" href="<?php echo base_url('user/home/logout');?>">Log Out</a></li>
 			</ul>
 			<!-- /.sub-ico-item -->

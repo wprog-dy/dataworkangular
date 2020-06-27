@@ -289,16 +289,16 @@ var wc_add_to_cart_params = {"ajax_url":"\/globax\/wp-admin\/admin-ajax.php","wc
   
 </li>
 </ul>
-<!-- <?php
+<?php
 if($this->session->userdata('id'))
 {
 	?>
 <li id="menu-item-8091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"  data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="../shop/index.html"><span class="txt">My Profile</span><span class="mi fa fa-angle-down"></span></a>
 	<ul class="sub-menu">
-	  	<li id="menu-item-10077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"  data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a href="<?= base_url('auth/myaccount'); ?>"><span class="txt">My Account</span><span class="mi fa fa-angle-down"></span></a>
+	  	<li id="menu-item-10077" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"  data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a href="<?= base_url('user/'.$this->session->userdata('user_type').'/form/'.$this->session->userdata('id')); ?>"><span class="txt">My Account</span><span class="mi fa fa-angle-down"></span></a>
 	  
 		</li>
-	  	<li id="menu-item-10088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"  data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a href="<?= base_url('auth/logout'); ?>"><span class="txt">Logout</span><span class="mi fa fa-angle-down"></span></a>
+	  	<li id="menu-item-10088" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children"  data-mm="false" data-mmc="1" data-mmw="grid-aligned"><a href="<?php echo base_url('user/home/logout');?>"><span class="txt">Logout</span><span class="mi fa fa-angle-down"></span></a>
 	  
 		</li>
 	</ul>
@@ -309,10 +309,10 @@ else
 {
 	?>
 
-	<li id="menu-item-8091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"  data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="<?= base_url('auth/login'); ?>"><span class="txt">Login</span><span class="mi fa fa-angle-down"></span></a></li>
+	<li id="menu-item-8091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children"  data-mm="false" data-mmc="2" data-mmw="grid-aligned"><a href="<?= base_url('user'); ?>"><span class="txt">Login</span><span class="mi fa fa-angle-down"></span></a></li>
 	<?php
 }
-?> -->
+?>
 
 
 

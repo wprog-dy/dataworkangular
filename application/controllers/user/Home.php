@@ -59,7 +59,6 @@ class Home extends CI_Controller {
         if($this->input->post('submit') == 'Create Account')
 		{
 			$this->form_validation->set_rules('user_type','Type','trim|required');
-			$this->form_validation->set_rules('industry_type','Type','trim|required');
 			$this->form_validation->set_rules('phone','Phone No.','trim|required|min_length[10]');
 			$this->form_validation->set_rules('email','email','trim|required|min_length[7]|valid_email');
 			$this->form_validation->set_rules('password','Password','trim|min_length[3]|required');
@@ -79,7 +78,6 @@ class Home extends CI_Controller {
 				$pass  = base64_encode($this->input->post('password'));
 				$data = array(
 					'user_type' => $this->input->post('user_type'),
-					'industry_type' => $this->input->post('industry_type'),
 					'phone' => $this->input->post('phone'),
 					'email' => $this->input->post('email'),
 					'password' => $pass

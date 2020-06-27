@@ -41,16 +41,6 @@
 			</div>
 			<?php } ?>
 			<div class="frm-input"><label>Select User Type *</label> &nbsp;<input type="radio" name="user_type" checked="checked" value="customer" >&nbsp;Customer&nbsp;<input type="radio" name="user_type"  value="vendor" >&nbsp;Vendor</div>
-			<!-- /.frm-input -->
-			<div class="frm-input">
-				<label>Customer *</label>
-				<select name="industry_type" class="form-control">
-					<option value="">Select...</option>	
-                    <option value="Load Provider">Load Provider</option>	
-                    <option value="Transporter (Vehicle Owner)">Transporter (Vehicle Owner)</option>	
-                    <option value="Vehicle Broker">Vehicle Broker</option>
-				</select>
-			</div>
 			<div class="frm-input"><label>Mobile No. *</label> <input type="text" placeholder="Mobile Number" name="phone" class="frm-inp"></div>
 			<div class="frm-input"><label>Email *</label> <input type="email" placeholder="Email Address" name="email" class="frm-inp"></div>
 			<div class="frm-input"><label>Password *</label> <input type="password" placeholder="Password" name="password" class="frm-inp"></div>
