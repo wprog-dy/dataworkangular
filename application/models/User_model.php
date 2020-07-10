@@ -7,7 +7,17 @@ Class User_model extends CI_Model
 		// echo $this->db->last_query(); die;
 		return $query;
     }
-	
+	function saveVendorbit($save)
+	{
+		$this->db->insert('vendor_enquiry_bit', $save);
+		$id	= $this->db->insert_id();
+		return $id;
+	}	
+	function getVendorbit($category_id,$enquiryid,$vendor_id)
+	{
+		$query = $this->db->order_by('id', 'DESC')->get_where('vendor_enquiry_bit', array('category_id' => $category_id,'enquiry_id' => $enquiryid,'vendor_id' => $vendor_id,))->result();
+		return $query;
+	}
 	function save_user($save){
 	   
 		if ($save['id'] != ""){

@@ -25,6 +25,7 @@ class Vendor extends CI_Controller {
         // $this->load->library('uploadfile');
 		// $this->load->helper("loginCode_generator_helper");
 		$this->load->model('User_model');
+		$this->load->model('Enquiries_model');
 		
 		if (!$this->session->userdata('is_user_login')) {
 			redirect('/');
@@ -518,5 +519,38 @@ class Vendor extends CI_Controller {
 			
 			redirect('user/vendor/form/'.$id);
 		}
+	}
+	public function vendorinbox()
+	{
+		$data['page_title'] = "Inbox";
+		$data['admin_setting_status'] = $this->Enquiries_model->chkSetting();
+		$data['dbValue'] = $this->Enquiries_model->getallEnquiries();
+		
+		$this->load->view("user/vwVendorinbox",$data);
+	}
+	public function vendorBit()
+	{
+		$save['vendor_id'] = $this->session->userdata('id');
+		$save['customerid'] = $this->input->post('customerid');
+		$save['reference_id'] = 'LW-'.uniqid();
+		$save['equiry_status'] = 'accept';
+		$save['category_id'] = $this->input->post('category_id');
+		$save['enquiry_id'] = $this->input->post('enquiry_id');
+		$save['rate_per_unit'] = $this->input->post('rate_per_unit');
+		$save['validity'] = $this->input->post('validity');
+		$save['credit_term'] = $this->input->post('credit_term');
+		$save['message'] = $this->input->post('message');
+
+		$dbId = $this->User_model->saveVendorbit($save);
+		$this->session->set_flashdata('message', 'Enquiry Rate Submit successfully.');
+		redirect('user/enquiries/enquirydetail/'.$this->input->post('category_id').'/'. $this->input->post('enquiry_id'));
+	}
+	public function vendorreplies()
+	{
+		$data['page_title'] = "Vendor Reply";
+		$vendorid = $this->session->userdata('id');
+		$data['page_title'] = 'Vendor Replay';
+		$data['vendorreplies'] = $this->Enquiries_model->getVendorReplies($vendorid);
+		$this->load->view("user/vwVendorReplies",$data);
 	}
 }

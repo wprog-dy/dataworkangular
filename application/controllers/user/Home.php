@@ -116,6 +116,7 @@ class Home extends CI_Controller {
 			if ($this->form_validation->run() == FALSE) 
 			{	
 				$data['error'] = validation_errors();
+				$data['user_type'] = $this->input->post('user_type');
                 $this->load->view('user/vwLogin',$data);
             }
             else 
@@ -132,10 +133,11 @@ class Home extends CI_Controller {
 				$val = $this->db->query($sql)->row();
 			   	if ($val) 
 			   	{
+
 			   		if($val->user_type=='admin')
 			   		{
 			   			$this->session->set_flashdata('fail','Username or Password incorrect!');
-                    	redirect($user_type);
+                    	redirect('user/vwLogin');
 			   		}
 			   		else
 			   		{
@@ -153,7 +155,7 @@ class Home extends CI_Controller {
                 else 
                 {
                     $this->session->set_flashdata('fail','Username or Password incorrect!');
-                    redirect($user_type);
+                    redirect('user');
                 }
             }
         }
