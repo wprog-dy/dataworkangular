@@ -44,8 +44,7 @@
 					<button type="button" class="close" data-dismiss="alert">×</button>
 					Oh snap!'.$this->session->flashdata('success').'</div>';
             } ?>
-		
-				<input type="hidden" name="user_type" value="<?= $user_type; ?>" >
+			<div class="frm-input"><label>Select User Type *</label> &nbsp;<input type="radio" name="user_type" checked="checked" value="customer" >&nbsp;Customer&nbsp;<input type="radio" name="user_type"  value="vendor" >&nbsp;Vendor</div>
 					<div class="frm-input"><input type="text" placeholder="Email" name="email" class="frm-inp"><i class="fa fa-user frm-ico"></i></div>
 			<!-- /.frm-input -->
 			<div class="frm-input"><input type="password" placeholder="Password" name="password" class="frm-inp"><i class="fa fa-lock frm-ico"></i></div>

@@ -44,6 +44,22 @@
 				</li>
 				<?php
 				}
+				if($this->session->userdata('user_type') == 'vendor')
+				{
+				?>
+				<li>
+					<a class="waves-effect" href="<?= base_url('user/vendor/vendorinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'vendor')
+				{
+				?>
+				<li>
+					<a class="waves-effect" href="<?= base_url('user/vendor/vendorreplies') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Reply</span></a>
+				</li>
+				<?php
+				}
 				if(($this->session->userdata('user_type') == 'admin')||($this->session->userdata('user_type') == 'vendor'))
 					{
 				?>
@@ -175,6 +191,168 @@
 				{
 				?>
 				<li>
+					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-plus-circle"></i><span>Post Load/Enquiries</span><span class="menu-arrow fa fa-angle-down"></span></a>
+					<ul class="sub-menu js__content">
+						<li class="nav-item">
+		                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><span class="d-none d-sm-inline">Road </span><span class="menu-arrow fa fa-angle-down"></span></a>
+		                    <div class="collapse" id="submenu1" aria-expanded="false">
+		                        <ul class="flex-column pl-2 nav">
+		                        	<li class="nav-item js__content"><a href="<?= base_url('user/enquiries2/form/28') ?>">Dedicated</a></li>
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Adhoc </span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu1sub1" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries2/form/26') ?>"> FTL </a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries2/form/27') ?>">PTL </a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                        </ul>
+		                    </div>
+		                </li>
+		                <li class="nav-item">
+		                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu2"><span class="d-none d-sm-inline">Other Business Load/Enquiries </span><span class="menu-arrow fa fa-angle-down"></span></a>
+		                    <div class="collapse" id="submenu2" aria-expanded="false">
+		                        <ul class="flex-column pl-2 nav">
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed text-truncate" href="#submenu2sub2" data-toggle="collapse" data-target="#submenu2sub2"><span>Transportation </span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu2sub2" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/2') ?>">Train</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/3') ?>">Air</a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed text-truncate" href="#submenu4sub4" data-toggle="collapse" data-target="#submenu4sub4"><span>Warehousing </span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu4sub4" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/5') ?>">3PL/4PL</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a class="nav-link collapsed text-truncate" href="#submenu6sub6" data-toggle="collapse" data-target="#submenu6sub6"><span>Purchase </span><span class="menu-arrow fa fa-angle-down"></a>
+					                                <div class="collapse" id="submenu6sub6" aria-expanded="false">
+					                                    <ul class="flex-column nav pl-4">
+					                                        <li class="nav-item">
+					                                            <a  href="<?= base_url('user/enquiries/form/8') ?>">Buyer</a>
+					                                        </li>
+					                                        <li class="nav-item">
+					                                            <a  href="<?= base_url('user/enquiries/form/9') ?>">Seller</a>
+					                                        </li>
+					                                    </ul>
+					                                </div>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a class="nav-link collapsed text-truncate" href="#submenu9sub9" data-toggle="collapse" data-target="#submenu9sub9"><span>Rental </span><span class="menu-arrow fa fa-angle-down"></a>
+					                                <div class="collapse" id="submenu9sub9" aria-expanded="false">
+					                                    <ul class="flex-column nav pl-4">
+					                                        <li class="nav-item">
+					                                            <a  href="<?= base_url('user/enquiries/form/10') ?>">Available</a>
+					                                        </li>
+					                                        <li class="nav-item">
+					                                            <a  href="<?= base_url('user/enquiries/form/11') ?>">Required</a>
+					                                        </li>
+					                                    </ul>
+					                                </div>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed text-truncate" href="#submenu12sub12" data-toggle="collapse" data-target="#submenu12sub12"><span>Global Logistics </span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu12sub12" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/13') ?>">Air Cargo</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/14') ?>">Sea Shipping</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/15') ?>">International Courier</a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed text-truncate" href="#submenu16sub16" data-toggle="collapse" data-target="#submenu16sub16"><span> Elite Services </span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu16sub16" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/17') ?>">Movers & Packers</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/18') ?>">Critical Management Services</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/19') ?>">Project Management Services</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries2/form/20') ?>">People Transport Solution</a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                            <li class="nav-item js__content">
+		                                <a class="nav-link collapsed text-truncate" href="#submenu21sub21" data-toggle="collapse" data-target="#submenu21sub21"><span>Freight Trading</span><span class="menu-arrow fa fa-angle-down"></a>
+		                                <div class="collapse" id="submenu21sub21" aria-expanded="false">
+		                                    <ul class="flex-column nav pl-4">
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/22') ?>">Trucker</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/23') ?>">Forwarder</a>
+		                                        </li>
+		                                        <li class="nav-item">
+		                                            <a  href="<?= base_url('user/enquiries/form/24') ?>">CHA</a>
+		                                        </li>
+		                                    </ul>
+		                                </div>
+		                            </li>
+		                        </ul>
+		                    </div>
+		                </li>
+					</ul>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'customer')
+				{
+				?>
+				<li>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/customerinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'customer')
+				{
+				?>
+				<li>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/vendorreplay') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Vendor Reply</span></a>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'customer')
+				{
+				?>
+				<li>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/ordersummary') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Order Summary</span></a>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'customer')
+				{
+				?>
+				<li>
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-gavel"></i><span>Compliance & Regularities</span></a>
 				</li>
 				<?php
@@ -211,22 +389,7 @@
 				</li>
 				<?php
 				}
-				if($this->session->userdata('user_type') == 'vendor')
-				{
-				?>
-				<li>
-					<a class="waves-effect" href="<?= base_url('user/vendor/vendorinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
-				</li>
-				<?php
-				}
-				if($this->session->userdata('user_type') == 'vendor')
-				{
-				?>
-				<li>
-					<a class="waves-effect" href="<?= base_url('user/vendor/vendorreplies') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Reply</span></a>
-				</li>
-				<?php
-				}
+				
 				if($this->session->userdata('user_type') == 'vendor')
 				{
 				?>
@@ -243,160 +406,8 @@
 				</li>
 				<?php
 				}
-				if($this->session->userdata('user_type') == 'customer')
-				{
-				?>
-				<li>
-					<a class="waves-effect" href="<?= base_url('user/enquiries/customerinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
-				</li>
-				<?php
-				}
-				if($this->session->userdata('user_type') == 'customer')
-				{
-				?>
-				<li>
-					<a class="waves-effect" href="<?= base_url('user/enquiries/vendorreplay') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Vendor Reply</span></a>
-				</li>
-				<?php
-				}
-				if($this->session->userdata('user_type') == 'customer')
-				{
-				?>
-				<li>
-					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-plus-circle"></i><span>Post Load/Enquiries</span><span class="menu-arrow fa fa-angle-down"></span></a>
-					<ul class="sub-menu js__content">
-						<li class="nav-item">
-		                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu1"><span class="d-none d-sm-inline">Road </span><span class="menu-arrow fa fa-angle-down"></span></a>
-		                    <div class="collapse" id="submenu1" aria-expanded="false">
-		                        <ul class="flex-column pl-2 nav">
-		                        	<li class="nav-item js__content"><a href="<?= base_url('user/enquiries2/28') ?>">Dedicated</a></li>
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed py-1" href="#submenu1sub1" data-toggle="collapse" data-target="#submenu1sub1"><span>Adhoc </span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu1sub1" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries2/26') ?>"> FTL </a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries2/27') ?>">PTL </a>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                        </ul>
-		                    </div>
-		                </li>
-		                <li class="nav-item">
-		                    <a class="nav-link collapsed text-truncate" href="#submenu1" data-toggle="collapse" data-target="#submenu2"><span class="d-none d-sm-inline">Other Business Load/Enquiries </span><span class="menu-arrow fa fa-angle-down"></span></a>
-		                    <div class="collapse" id="submenu2" aria-expanded="false">
-		                        <ul class="flex-column pl-2 nav">
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed text-truncate" href="#submenu2sub2" data-toggle="collapse" data-target="#submenu2sub2"><span>Transportation </span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu2sub2" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/2') ?>">Train</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/3') ?>">Air</a>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed text-truncate" href="#submenu4sub4" data-toggle="collapse" data-target="#submenu4sub4"><span>Warehousing </span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu4sub4" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/5') ?>">3PL/4PL</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a class="nav-link collapsed text-truncate" href="#submenu6sub6" data-toggle="collapse" data-target="#submenu6sub6"><span>Purchase </span><span class="menu-arrow fa fa-angle-down"></a>
-					                                <div class="collapse" id="submenu6sub6" aria-expanded="false">
-					                                    <ul class="flex-column nav pl-4">
-					                                        <li class="nav-item">
-					                                            <a  href="<?= base_url('user/enquiries/8') ?>">Buyer</a>
-					                                        </li>
-					                                        <li class="nav-item">
-					                                            <a  href="<?= base_url('user/enquiries/9') ?>">Seller</a>
-					                                        </li>
-					                                    </ul>
-					                                </div>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a class="nav-link collapsed text-truncate" href="#submenu9sub9" data-toggle="collapse" data-target="#submenu9sub9"><span>Rental </span><span class="menu-arrow fa fa-angle-down"></a>
-					                                <div class="collapse" id="submenu9sub9" aria-expanded="false">
-					                                    <ul class="flex-column nav pl-4">
-					                                        <li class="nav-item">
-					                                            <a  href="<?= base_url('user/enquiries/10') ?>">Available</a>
-					                                        </li>
-					                                        <li class="nav-item">
-					                                            <a  href="<?= base_url('user/enquiries/11') ?>">Required</a>
-					                                        </li>
-					                                    </ul>
-					                                </div>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed text-truncate" href="#submenu12sub12" data-toggle="collapse" data-target="#submenu12sub12"><span>Global Logistics </span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu12sub12" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/13') ?>">Air Cargo</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/14') ?>">Sea Shipping</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/15') ?>">International Courier</a>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed text-truncate" href="#submenu16sub16" data-toggle="collapse" data-target="#submenu16sub16"><span> Elite Services </span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu16sub16" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/17') ?>">Movers & Packers</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/18') ?>">Critical Management Services</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/19') ?>">Project Management Services</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries2/20') ?>">People Transport Solution</a>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                            <li class="nav-item js__content">
-		                                <a class="nav-link collapsed text-truncate" href="#submenu21sub21" data-toggle="collapse" data-target="#submenu21sub21"><span>Freight Trading</span><span class="menu-arrow fa fa-angle-down"></a>
-		                                <div class="collapse" id="submenu21sub21" aria-expanded="false">
-		                                    <ul class="flex-column nav pl-4">
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/22') ?>">Trucker</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/23') ?>">Forwarder</a>
-		                                        </li>
-		                                        <li class="nav-item">
-		                                            <a  href="<?= base_url('user/enquiries/24') ?>">CHA</a>
-		                                        </li>
-		                                    </ul>
-		                                </div>
-		                            </li>
-		                        </ul>
-		                    </div>
-		                </li>
-					</ul>
-				</li>
-				<?php
-				}
+				
+				
 				
 				?>
 

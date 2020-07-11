@@ -120,6 +120,7 @@ class Enquiries2 extends CI_Controller
 				$save['id'] = $id;
 				$save['category_id'] = $this->input->post('category_id');
 				$save['customerid'] = $this->session->userdata('id');
+				$save['reference_id'] = 'LW-'.uniqid();
 				$setting = $this->Enquiries_model->chkSetting();
 				$save['admin_setting_status'] = $setting->status;
 

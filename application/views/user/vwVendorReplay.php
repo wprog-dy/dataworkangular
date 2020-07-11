@@ -19,6 +19,7 @@
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Transaction</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Type of Load</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Replied Date</th>
+								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Action</th>
 							</tr>
 						</thead>
 						<tbody>	
@@ -36,13 +37,14 @@
 							<tr role="row" class="<?=$tr_class?>">
 								
 								<td class="sorting_1"><?= $i; ?></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= ucwords($db_value->origin_city); ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->destination_city; ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->product; ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->when_required_date; ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->type_of_transaction; ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->type_of_load; ?></a></td>
-								<td><a href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id); ?>"><?= $db_value->replaied_date; ?></a></td>
+								<td><?= ucwords($db_value->origin_city); ?></td>
+								<td><?= $db_value->destination_city; ?></td>
+								<td><?= $db_value->product; ?></td>
+								<td><?= $db_value->when_required_date; ?></td>
+								<td><?= $db_value->type_of_transaction; ?></td>
+								<td><?= $db_value->type_of_load; ?></td>
+								<td><?= $db_value->replaied_date; ?></td>
+								<td><a title="Vendor Reply Details" class="btn btn-sm btn-info" href="<?= base_url('user/enquiries/vendorreplydetails/'.$db_value->enquiry_id.'/'.$db_value->bitid); ?>"><i class="fa fa-eye"></i></a></td>
 								</a>
 							</tr>
 						<?php } ?>

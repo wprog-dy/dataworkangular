@@ -128,7 +128,7 @@ class Home extends CI_Controller {
 				$enc_pass  = base64_encode($password);
 				// echo $enc_pass;       
 				
-				$sql = "SELECT * FROM `users` WHERE email = '".$user."' AND password = '".$enc_pass."' AND status = '1'";
+				$sql = "SELECT * FROM `users` WHERE email = '".$user."' AND password = '".$enc_pass."' AND user_type = '".$user_type."'  AND status = '1'";
 				
 				$val = $this->db->query($sql)->row();
 			   	if ($val) 
@@ -211,15 +211,12 @@ class Home extends CI_Controller {
             }
         }
     }
-    public function logout(){
-		/* $logoutuser = $this->session->userdata('login_time');   
-		$this->User_model->update_logout($logoutuser); */
-		
+    public function logout()
+    {	
 		$this->session->unset_userdata('id');
         $this->session->unset_userdata('email');
         $this->session->unset_userdata('user_type');   
-        $this->session->unset_userdata('is_user_login');   
-        
+        $this->session->unset_userdata('is_user_login');       
 		$this->session->sess_destroy();
         $this->output->set_header("Cache-Control: no-store, no-cache, must-revalidate, no-transform, max-age=0, post-check=0, pre-check=0");
         $this->output->set_header("Pragma: no-cache");

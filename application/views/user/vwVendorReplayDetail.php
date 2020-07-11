@@ -6,8 +6,7 @@
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-
-  padding-top: 100px; /* Location of the box */
+  padding-top: 250px; /* Location of the box */
   left: 0;
   top: 0px;
   width: 100%; /* Full width */
@@ -41,6 +40,10 @@
   text-decoration: none;
   cursor: pointer;
 }
+.accepted
+{
+	background: #0080003b;
+}
 </style>
 <div id="wrapper">
 	<div class="main-content">
@@ -67,54 +70,131 @@
 				<?php $this->load->view('user/vwError'); ?>
 				<div class="box-content">
 					<h4 class="box-title"><?php echo $page_title; ?></h4>
-					
-					<table id="example" class="table table-striped table-bordered display dataTable" style="width: 100%;" role="grid" aria-describedby="example_info">
-						<?php
+					<?php
+						$CI =& get_instance();
+						$CI->load->model('User_model');
 						foreach ($vendorreplaydetail as $value) 
 						{
 							?>
-							<tr><td>Reference Id </td><td><?= $value->reference_id; ?></td></tr>
-							<tr><td>Customer Email </td><td><?= $this->session->userdata('email'); ?></td></tr>
-							<tr><td>Vendor Company Name	</td><td><?= $value->company_name; ?></td></tr>
-							<tr><td>Vendor Email	</td><td><?= $value->email; ?></td></tr>
-							<tr><td>Phone	</td><td><?= $value->phone; ?></td></tr>
-							<tr><td>Origin	</td><td><?= $value->origin_city; ?></td></tr>
-							<tr><td>Destination	</td><td><?= $value->destination_city; ?></td></tr>
-							<tr><td>When Required	</td><td><?= $value->when_required_date; ?></td></tr>
-							<tr><td>Transaction	</td><td><?= $value->type_of_transaction; ?></td></tr>
-							<tr><td>Type of load </td><td><?= $value->type_of_load; ?></td></tr>
-							<tr><td>Product	</td><td><?= $value->product; ?></td></tr>
-							<tr><td>Approx Weight </td><td><?= $value->approx_weight_kg; ?></td></tr>
-							<tr><td>No. of packets	</td><td><?= $value->no_of_packets; ?></td></tr>
-							<tr><td>Specific Requirements	</td><td><?= $value->specific_requirement; ?></td></tr>
-							<tr><td>Rate offered	</td><td><?= $value->rate_per_unit; ?></td></tr>
-							<tr><td>Validity	</td><td><?= $value->validity; ?></td></tr>
-							<tr><td>Remark Credit Term	</td><td><?= $value->credit_term; ?></td></tr>
-							<tr><td>Messages	</td><td><?= $value->message; ?></td></tr>
-							<tr><td>When Replied	</td><td><?= $value->when_required_date; ?></td></tr>
-						<?php	
-						}
-						if($this->session->userdata('user_type')=='customer')
-						{
-						?>
-						<tr>
-							<div class="float-right">
-								<a class="btn btn-sm btn-primary" href="<?= base_url('user/enquiries/enquiryvendorstatus/'.$value->enquiry_id.'/'.$value->reference_id.'/'.$value->equiry_status) ?>"><?= $value->equiry_status; ?></a>
-							</div>
-						</tr>
+						<div class="row">
+						<table id="example" class="table table-striped table-bordered display dataTable" style="width: 100%;" role="grid" aria-describedby="example_info">
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Reference Id</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Customer Name</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Customer Email</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Vendor Company Name</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Vendor Email</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Phone</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Origin</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Destination</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">When Required</th>
+							
+							<tr>
+								<td><?= $value->reference_id; ?></td>
+								<td><?php
+										$result = $CI->User_model->get_user($value->customerid);
+										echo ucwords($result->first_name.' '.$result->last_name) ?></td>
+								<td><?= $result->email; ?></td>
+								<td><?= $value->company_name; ?></td>
+								<td><?= $value->email; ?></td>
+								<td><?= $value->phone; ?></td>
+								<td><?= $value->origin_city; ?></td>
+								<td><?= $value->destination_city; ?></td>
+								<td><?= $value->when_required_date; ?></td>
+						</table>
+						<table id="example" class="table table-striped table-bordered display dataTable" style="width: 100%;" role="grid" aria-describedby="example_info">
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Transaction</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Type of load</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Product</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Approx Weight</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">No. of packets</th>
+							<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1" aria-sort="ascending">Specific Requirements</th>
+							<tr>
+								<td><?= $value->type_of_transaction; ?></td>
+								<td><?= $value->type_of_load; ?></td>
+								<td><?= $value->product; ?></td>
+								<td><?= $value->approx_weight_kg; ?></td>
+								<td><?= $value->no_of_packets; ?></td>
+								<td><?= $value->specific_requirement; ?></td>
+						</table>
+					</div>
+					<div class="row">
+						<div class="col-lg-6">
+							<table id="example" class="table table-striped table-bordered display dataTable" style="width: 100%;" role="grid" aria-describedby="example_info">
+							<tr><td  class="accepted">Rate offered	</td><td  class="accepted"><?= $value->rate_per_unit; ?></td></tr>
+								<tr><td class="accepted" >Validity	</td><td class="accepted" ><?= $value->validity; ?></td></tr>
+								<tr><td class="accepted" >Remark Credit Term	</td><td class="accepted" ><?= $value->credit_term; ?></td></tr>
+								<tr><td class="accepted">Messages	</td><td class="accepted"><?= $value->message; ?></td></tr>
+								<tr><td class="accepted">When Replied	</td><td class="accepted"><?= $value->when_required_date; ?></td></tr>
+								<?php
+									if($value->equiry_status =='Accepted')
+									{
+										if($this->session->userdata('user_type')=='vendor')
+										{
+								?>
+								<tr>
+									<td class="accepted">Offer is accepted</td>
+									<td class="accepted">
+											<button type="button" class="btn btn-info btn-xs waves-effect waves-light" data-toggle="tooltip" title="Assign Driver" value="<?php echo $value->reference_id; ?>"  id="myBtn">Assign Driver </button>
+									</td>	
+								</tr>
+								<?php
+									}
+									if($this->session->userdata('user_type')=='customer')
+										{
+									?>
+									<tr>
+									<td class="accepted"></td>
+									<td class="accepted">
+											<button type="button" class="btn btn-info btn-xs waves-effect waves-light">View Driver Location </button>
+									</td>	
+								</tr>
+									<?php
+									}
+									?>
+								<tr>
+									<td class="accepted">Pickup Date</td>
+									<td class="accepted">Pending</td>	
+								</tr>
+								<tr>
+									<td class="accepted">Pickup Images</td>
+									<td class="accepted"></td>	
+								</tr>
+								<tr>
+									<td class="accepted">Drop Date</td>
+									<td class="accepted">Pending</td>		
+								</tr>
+								<tr>
+									<td class="accepted">Drop Images</td>
+									<td class="accepted"></td>		
+								</tr>
+								<?php
+								}
+								?>
+							</table>
+						</div>
+							<?php	
+							if($this->session->userdata('user_type')=='customer')
+							{
+							?>
+						<div class="box-content col-lg-6 col-12">
+								<p><h5>Vendor Detail</h5></p><hr>  	
+								<p><?= $value->company_name; ?></p>
+								<p>Contact No. : <?= $value->phone; ?></p>
+								<p>Email : <?= $value->email; ?></p>
+								<p>Website : <?= $value->company_website; ?></p>
+								<p>Industry Type : <?= $value->industry_type; ?></p>
+								<p>Services Area : <?= $value->category_name; ?></p>
+								<p>Type of company :  <?= $value->company_type; ?></p>
+								<p>No of years in business : <?= $value->business_years; ?></p>
+								<p>About : <?= $value->additional_info; ?></p>
+						</div>
 						<?php
-						}if($this->session->userdata('user_type')=='vendor')
-						{
-						?>
-						<tr>
-							<div class="float-right">
-								<button type="button" class="btn btn-info btn-xs waves-effect waves-light" data-toggle="tooltip" title="Assign Driver" value="<?php echo $value->reference_id; ?>"  id="myBtn">Assign Driver </button>
-							</div>
-						</tr>
-						<?php
-						}
+					}
 					?>
-					</table>
+					</div>
+					<?php
+					}
+					?>
 				</div>
 				<!-- /.box-content -->
 			</div>

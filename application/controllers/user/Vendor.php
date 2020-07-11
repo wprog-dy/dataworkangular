@@ -31,13 +31,10 @@ class Vendor extends CI_Controller {
 			redirect('/');
 		}
     }
-	
-	public function index(){
-		
-		$data['page_title'] = 'Vendor List';
-		
+	public function index()
+	{
+		$data['page_title'] = 'Vendor List';	
 		$data['dbValue'] = $this->User_model->get_users('vendor');
-		
 		$this->load->view('user/vwVendor', $data);
 	}
 	public function vendorprofile($id = false)
@@ -526,14 +523,13 @@ class Vendor extends CI_Controller {
 		$data['admin_setting_status'] = $this->Enquiries_model->chkSetting();
 		$data['dbValue'] = $this->Enquiries_model->getallEnquiries();
 		
-		$this->load->view("user/vwVendorinbox",$data);
+		$this->load->view("user/vwVendorInbox",$data);
 	}
 	public function vendorBit()
 	{
 		$save['vendor_id'] = $this->session->userdata('id');
 		$save['customerid'] = $this->input->post('customerid');
-		$save['reference_id'] = 'LW-'.uniqid();
-		$save['equiry_status'] = 'accept';
+		$save['reference_id'] = $this->input->post('reference_id');
 		$save['category_id'] = $this->input->post('category_id');
 		$save['enquiry_id'] = $this->input->post('enquiry_id');
 		$save['rate_per_unit'] = $this->input->post('rate_per_unit');

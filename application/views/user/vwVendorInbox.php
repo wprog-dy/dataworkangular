@@ -19,6 +19,7 @@
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Destination City</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">When Required</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Posted Date</th>
+								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Action</th>
 							</tr>
 						</thead>
 						<tbody>	
@@ -36,9 +37,7 @@
 						?>
 							<tr role="row" class="<?=$tr_class?>">
 								<td class="sorting_1"><?= $i; ?></td>
-								<td>
-									<a href="<?= base_url('user/enquiries/enquirydetail/'.$db_value->category_id.'/'.$db_value->enquiryid); ?>"><?= $db_value->category_name; ?></a>
-								</td>
+								<td><?= $db_value->category_name; ?></td>
 								<td><?= $db_value->industry_type; ?></td>
 								<?php if($db_value->type_of_warehouse) { ?>
 								<td><?= $db_value->type_of_warehouse; ?></td>
@@ -49,6 +48,9 @@
 								<td><?= $db_value->destination_city; ?></td>
 								<td><?= $db_value->when_required_date; ?></td>
 								<td><?= $db_value->created_date; ?></td>
+								<td>
+									<a title="View Detail/Quotes" class="btn btn-info btn-xs waves-effect waves-light" href="<?= base_url('user/enquiries/enquirydetail/'.$db_value->category_id.'/'.$db_value->enquiryid); ?>"><i class="fa fa-eye"></i></a>
+								</td>
 							</tr>
 							<?php
 								}
@@ -60,9 +62,7 @@
 						?>
 							<tr role="row" class="<?=$tr_class?>">
 								<td class="sorting_1"><?= $i; ?></td>
-								<td>
-									<a href="<?= base_url('user/enquiries/enquirydetail/'.$db_value->category_id.'/'.$db_value->enquiryid); ?>"><?= $db_value->category_name; ?></a>
-								</td>
+								<td><?= $db_value->category_name; ?></td>
 								<td><?= $db_value->industry_type; ?></td>
 								<?php if($db_value->type_of_warehouse) { ?>
 								<td><?= $db_value->type_of_warehouse; ?></td>
@@ -73,6 +73,9 @@
 								<td><?= $db_value->destination_city; ?></td>
 								<td><?= $db_value->when_required_date; ?></td>
 								<td><?= $db_value->created_date; ?></td>
+								<td>
+									<a title="View Detail/Quotes" class="btn btn-info btn-xs waves-effect waves-light" href="<?= base_url('user/enquiries/enquirydetail/'.$db_value->category_id.'/'.$db_value->enquiryid); ?>"><i class="fa fa-eye"></i></a>
+								</td>
 							</tr>
 							<?php
 									}

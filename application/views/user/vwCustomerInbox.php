@@ -19,6 +19,7 @@
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Destination City</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">When Required</th>
 								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Posted Date</th>
+								<th class="sorting" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Action</th>
 							</tr>
 						</thead>
 						<tbody>	
@@ -47,6 +48,9 @@
 								<td><?= $db_value->destination_city; ?></td>
 								<td><?= $db_value->when_required_date; ?></td>
 								<td><?= $db_value->created_date; ?></td>
+								<td>
+									<a title="Enquiry Detail" class="btn btn-sm btn-info" href="<?= base_url('user/enquiries/enquirydetail/'.$db_value->category_id.'/'.$db_value->enquiryid) ?>"><i class="fa fa-eye"></i></a>
+								</td>
 							</tr>
 							<?php 
 								} 

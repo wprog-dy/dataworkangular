@@ -48,22 +48,43 @@ class Enquiries extends CI_Controller
 
 		$this->load->view('user/vwVendorReplay', $data);
 	}
-	public function vendorReplyDetails($enquiry_id)
+	public function vendorReplyDetails($enquiry_id,$bitid)
 	{
 		$data['page_title'] = 'Vendor Replay Detail';
-		$data['vendorreplaydetail'] = $this->Enquiries_model->getVendorReplayDetail($enquiry_id);
+		$data['vendorreplaydetail'] = $this->Enquiries_model->getVendorReplayDetail($enquiry_id,$bitid);
 		$data['driverValue'] = $this->Driver_model->get_drivers();
 		$this->load->view('user/vwVendorReplayDetail', $data);
 	}
-	public function enquiryVendorStatus($enquiry_id,$reference_id,$equiry_status)
+	public function orderSummary()
 	{
-		if($equiry_status == 'accept')
+		$customerid = $this->session->userdata('id');
+		$data['page_title'] = 'Order Summary';
+		$data['vendorreplay'] = $this->Enquiries_model->getOrderSummary($customerid);
+		$this->load->view('user/vwOrderSummary', $data);
+	}
+	public function orderSummaryList($enquiry_id)
+	{
+		$customerid = $this->session->userdata('id');
+		$data['page_title'] = 'Order Summary List';
+		$data['dbValue'] = $this->Enquiries_model->getOrderSummaryList($customerid,$enquiry_id);
+		$this->load->view('user/vwOrderSummaryList', $data);
+	}
+	public function orderSummaryDetails($enquiry_id,$bitid)
+	{
+		$data['page_title'] = 'Order Summary Detail';
+		$data['vendorreplaydetail'] = $this->Enquiries_model->getVendorReplayDetail($enquiry_id,$bitid);
+		$data['driverValue'] = $this->Driver_model->get_drivers();
+		$this->load->view('user/vwVendorReplayDetail', $data);
+	}
+	public function enquiryVendorStatus($enquiry_id,$reference_id,$equiry_status,$bitid)
+	{
+		if($equiry_status == 'Pending')
 		{
-			$save['equiry_status'] = 'accepted';	
+			$save['equiry_status'] = 'Accepted';	
 		}	
-		$result = $this->Enquiries_model->updateEnquiryStatus($enquiry_id,$reference_id,$save);
+		$result = $this->Enquiries_model->updateEnquiryStatus($enquiry_id,$reference_id,$save,$bitid);
 		$this->session->set_flashdata('error', 'Enquiry Accepted');
-		redirect("user/enquiries/vendorreplydetails/$enquiry_id");
+		redirect("user/enquiries/orderSummarylist/$enquiry_id");
 	}
 	public function form($category_id,$id = false)
 	{	
@@ -583,6 +604,7 @@ class Enquiries extends CI_Controller
 				$save['id'] = $id;
 				$save['category_id'] = $this->input->post('category_id');
 				$save['customerid'] = $this->session->userdata('id');
+				$save['reference_id'] = 'LW-'.uniqid();
 				$setting = $this->Enquiries_model->chkSetting();
 				$save['admin_setting_status'] = $setting->status;
 

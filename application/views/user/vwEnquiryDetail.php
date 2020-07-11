@@ -13,9 +13,18 @@
 						<div class="box-content col-lg-4 col-12">
 							<?php if($dbValue->origin_city) { ?>	 <p><h5>Origin City</h5>  <?= $dbValue->origin_city; ?></p><hr>  <?php } ?>	
 							<?php if($dbValue->destination_city) { ?>	 <p><h5>Destination City</h5>  <?= $dbValue->destination_city; ?></p> <hr> <?php } ?>	
-							<?php if($dbValue->when_required_date) { ?>	 <p><h5>When Required</h5>  <?= $dbValue->when_required_date; ?></p> <hr> <?php } ?>
-							<?php if($dbValue->when_required_time) { ?>	 <p><h5>When Required Time</h5>  <?= $dbValue->when_required_time; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->scheduling_type) { ?>	 <p><h5>Scheduling Type</h5>  <?= $dbValue->scheduling_type; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->when_required_date) { ?>	 <p><h5> <?php if($dbValue->scheduling_type =='One Time') { echo 'Loading Date'; } else { echo 'When Required'; } ?></h5>  <?= $dbValue->when_required_date; ?></p> <hr> <?php } ?>
+							<?php if($dbValue->when_required_time) { ?>	 <p><h5> <?php if($dbValue->scheduling_type =='One Time') { echo 'Loading Time'; } else { echo 'When Required Time'; } ?></h5>  <?= $dbValue->when_required_time; ?></p> <hr> <?php } ?>	
 							<?php if($dbValue->type_of_transaction) { ?>	 <p><h5>Type of Transaction</h5>  <?= $dbValue->type_of_transaction; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->product) { ?>	 <p><h5>Product</h5>  <?= $dbValue->product; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->weight) { ?>	 <p><h5>Weight MT</h5>  <?= $dbValue->weight; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->freight) { ?>	 <p><h5>Freight</h5>  <?= $dbValue->freight; ?></p> <hr> <?php } ?>	
+							<?php if($dbValue->paymentterms_percentage) { ?>	 <p><h5>Payment Terms Advance </h5>  
+								<?php  
+									$advance_per = json_decode($dbValue->paymentterms_percentage);
+									echo $advance_per->advance_per;
+								?></p> <hr> <?php } ?>	
 							<?php if($dbValue->type_of_load) { ?>	 <p><h5>Type of Load</h5>  <?= $dbValue->type_of_load; ?></p> <hr> <?php } ?>
 							<?php if($dbValue->industry_type) { ?>	 <p><h5>Industry Type</h5>  <?= $dbValue->industry_type; ?></p> <hr> <?php } ?>	
 							<?php if($dbValue->product_commodities) { ?>	 <p><h5>Product/Commodities</h5>  <?= $dbValue->product_commodities; ?></p> <hr> <?php } ?>	
@@ -133,13 +142,14 @@
 								<div class="form-group col-lg-6">
 									<label for="rate_per_unit">Rate (Per unit) <span class="text-danger">*</span></label>
 									<input type="hidden" name="enquiry_id" value="<?= $dbValue->id ?>">
+									<input type="hidden" name="reference_id" value="<?= $dbValue->reference_id ?>">
 									<input type="hidden" name="category_id" value="<?= $dbValue->category_id ?>">
 									<input type="hidden" name="customerid" value="<?= $dbValue->customerid ?>">
 									<input type="number" class="form-control" id="rate_per_unit" name="rate_per_unit" value="" required="required" >
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="validity">Validity<span class="text-danger">*</span></label>
-									<input type="text" class="form-control" id="validity" name="validity" value="" required="required">
+									<input type="date" class="form-control" id="validity" name="validity" value="" required="required">
 								</div>
 								<div class="form-group col-lg-6">
 									<label for="credit_term">Credit Term<span class="text-danger">*</span></label>

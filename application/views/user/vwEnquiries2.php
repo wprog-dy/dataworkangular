@@ -44,7 +44,6 @@
 								}
 								?>
 								<th class="d-none sorting text-center" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Status</th>
-								
 								<th class="sorting text-center" tabindex="0" aria-controls="example" rowspan="1" colspan="1">Action</th>
 							</tr>
 						</thead>
