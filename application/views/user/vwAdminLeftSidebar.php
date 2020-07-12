@@ -48,7 +48,7 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect" href="<?= base_url('user/vendor/vendorinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
+					<a class="waves-effect" href="<?= base_url('user/vendor/vendorinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox </span><span class="notice notice-blue"  id="countinbox"></span> </a>
 				</li>
 				<?php
 				}
@@ -56,7 +56,7 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect" href="<?= base_url('user/vendor/vendorreplies') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Reply</span></a>
+					<a class="waves-effect" href="<?= base_url('user/vendor/vendorreplies') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Reply </span><span class="notice notice-blue"  id="replyinbox"></span> </a>
 				</li>
 				<?php
 				}
@@ -329,7 +329,7 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect" href="<?= base_url('user/enquiries/customerinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox</span></a>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/customerinbox') ?>"><i class="menu-icon fa fa-comments"></i><span>Inbox </span></a>
 				</li>
 				<?php
 				}
@@ -337,7 +337,7 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect" href="<?= base_url('user/enquiries/vendorreplay') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Vendor Reply</span></a>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/vendorreplay') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Vendor Reply </span><span  class="notice notice-blue"  id="vendorreplaycount"></span> </a>
 				</li>
 				<?php
 				}
@@ -345,7 +345,7 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect" href="<?= base_url('user/enquiries/ordersummary') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Order Summary</span></a>
+					<a class="waves-effect" href="<?= base_url('user/enquiries/ordersummary') ?>"><i class="menu-icon fa fa-reply-all"></i><span>Order Summary </span><span class="notice notice-blue" id="ordersummarycount"></span> </a>
 				</li>
 				<?php
 				}

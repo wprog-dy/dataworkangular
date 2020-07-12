@@ -1,53 +1,38 @@
 <!DOCTYPE html>
-<html lang="en" class="js menu-active">
-
+<html lang="en" class="js js">
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-
 	<title>User - Logisticwala</title>
-
 	<!-- Main Styles -->
 	<link rel="stylesheet" href="<?php echo HTTP_CSS_PATH_ADMIN; ?>style.min.css">
 	<link rel="stylesheet" href="<?php echo HTTP_CSS_PATH_ADMIN; ?>custom.css">
 	<link rel="stylesheet" href="<?php echo HTTP_CSS_PATH_ADMIN; ?>custom_back.css">
-	
 	<!-- Material Design Icon -->
 	<link rel="stylesheet" href="<?php echo HTTP_FONT_PATH_ADMIN; ?>material-design/css/materialdesignicons.css">
-
 	<!-- mCustomScrollbar -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>mCustomScrollbar/jquery.mCustomScrollbar.min.css">
-
 	<!-- Waves Effect -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>waves/waves.min.css">
-
 	<!-- Sweet Alert -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>sweet-alert/sweetalert.css">
-	
 	<!-- Percent Circle -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>percircle/css/percircle.css">
-
 	<!-- Chartist Chart -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>chart/chartist/chartist.min.css">
-
 	<!-- FullCalendar -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>fullcalendar/fullcalendar.min.css">
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>fullcalendar/fullcalendar.print.css" media='print'>
-
 	<!-- Color Picker -->
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>color-switcher/color-switcher.min.css">
-
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>datatables/media/css/dataTables.bootstrap4.min.css">
 	<link rel="stylesheet" href="<?php echo HTTP_PLUGINS_PATH_ADMIN; ?>datatables/extensions/Responsive/css/responsive.bootstrap.min.css">
-	
 </head>
-
 <body>
 <?php $this->load->view('user/vwAdminLeftSidebar.php');?>
-
 <div class="fixed-navbar">
 	<div class="float-left">
 		<button type="button" class="menu-mobile-button fas fa-bars js__menu_mobile"></button>

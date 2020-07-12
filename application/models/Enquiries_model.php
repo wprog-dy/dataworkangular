@@ -6,6 +6,11 @@ Class Enquiries_model extends CI_Model
 		$query = $this->db->order_by('id', 'DESC')->where('id',$category_id)->get_where('categories')->row();
 		return $query;
     }
+    function getDrivers()
+	{
+		$query = $this->db->order_by('drivers.id', 'DESC')->join('vehicles','vehicles.assign_driver_id = drivers.id')->get_where('drivers')->result();
+		return $query;
+    }
     function getEnquiries($category_id)
 	{
 		$query = $this->db->order_by('id', 'DESC')->where('category_id', $category_id)->get_where('enquiries')->result();
@@ -74,17 +79,17 @@ Class Enquiries_model extends CI_Model
     }
     function getOrderSummary($customerid)
     {
-    	$query = $this->db->order_by('vendor_enquiry_bit.rate_per_unit')->group_by('vendor_enquiry_bit.category_id')->select('min(vendor_enquiry_bit.rate_per_unit) as rate, categories.category_name,enquiries.reference_id,enquiries.equiry_status,vendor_enquiry_bit.enquiry_id,vendor_enquiry_bit.created_date as replaied_date')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->join('categories','categories.id = vendor_enquiry_bit.category_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.customerid'=>$customerid))->result();
+    	$query = $this->db->order_by('vendor_enquiry_bit.rate_per_unit')->group_by('vendor_enquiry_bit.category_id')->select('min(vendor_enquiry_bit.rate_per_unit) as rate, categories.category_name,enquiries.reference_id,enquiries.enquiry_status,vendor_enquiry_bit.enquiry_id,vendor_enquiry_bit.created_date as replaied_date')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->join('categories','categories.id = vendor_enquiry_bit.category_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.customerid'=>$customerid))->result();
     	return $query;
     }
     function getOrderSummaryList($customerid,$enquiry_id)
     {
-		$query = $this->db->group_by('vendor_enquiry_bit.rate_per_unit')->select('enquiries.origin_city,enquiries.destination_city,categories.category_name,users.company_name,users.company_website,users.phone,vendor_enquiry_bit.rate_per_unit,vendor_enquiry_bit.equiry_status,vendor_enquiry_bit.enquiry_id,vendor_enquiry_bit.id as bitid,vendor_enquiry_bit.reference_id')->join('categories','categories.id = vendor_enquiry_bit.category_id')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->join('users','users.id = vendor_enquiry_bit.vendor_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.customerid'=>$customerid,'vendor_enquiry_bit.enquiry_id'=>$enquiry_id))->result();
+		$query = $this->db->group_by('vendor_enquiry_bit.rate_per_unit')->select('enquiries.origin_city,enquiries.destination_city,categories.category_name,users.company_name,users.company_website,users.phone,vendor_enquiry_bit.rate_per_unit,vendor_enquiry_bit.enquiry_status,vendor_enquiry_bit.enquiry_id,vendor_enquiry_bit.id as bitid,vendor_enquiry_bit.reference_id')->join('categories','categories.id = vendor_enquiry_bit.category_id')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->join('users','users.id = vendor_enquiry_bit.vendor_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.customerid'=>$customerid,'vendor_enquiry_bit.enquiry_id'=>$enquiry_id))->result();
     	return $query;
     }
     function getVendorReplies($vendorid)
     {
-    	$query = $this->db->order_by('vendor_enquiry_bit.id', 'DESC')->select('enquiries.origin_city,vendor_enquiry_bit.enquiry_id,enquiries.destination_city,enquiries.when_required_date,enquiries.product,enquiries.type_of_transaction,enquiries.type_of_load,vendor_enquiry_bit.created_date as replaied_date,users.first_name,users.last_name,vendor_enquiry_bit.equiry_status,vendor_enquiry_bit.reference_id,vendor_enquiry_bit.id as bitid')->join('users','users.id = vendor_enquiry_bit.customerid')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.vendor_id'=>$vendorid))->result();
+    	$query = $this->db->order_by('vendor_enquiry_bit.id', 'DESC')->select('enquiries.origin_city,vendor_enquiry_bit.enquiry_id,enquiries.destination_city,enquiries.when_required_date,enquiries.product,enquiries.type_of_transaction,enquiries.type_of_load,vendor_enquiry_bit.created_date as replaied_date,users.first_name,users.last_name,vendor_enquiry_bit.enquiry_status,vendor_enquiry_bit.reference_id,vendor_enquiry_bit.id as bitid')->join('users','users.id = vendor_enquiry_bit.customerid')->join('enquiries','enquiries.id = vendor_enquiry_bit.enquiry_id')->get_where('vendor_enquiry_bit', array('vendor_enquiry_bit.vendor_id'=>$vendorid))->result();
     	return $query;
     }
     function getVendorReplayDetail($enquiry_id,$bitid)

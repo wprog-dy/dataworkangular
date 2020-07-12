@@ -53,15 +53,16 @@
   <div class="modal-content">
     <div><span class="close">&times;</span></div>
     <div class="message"></div>
-    <h5>Assign a driver</h5>
+    <h5>Reassigned driver</h5>
     	<?php
     	foreach ($driverValue as $key => $value) 
     	{
     		?>
-    			<label><input type="radio" name="assign_driver_id" class="driverclass"  value="<?= $value->id; ?>" > <?= ucwords($value->driver_name); ?></label>
+    			<label><input type="radio" name="assign_driver_id" class="driverclass"  value="<?= $value->id; ?>" > <?= ucwords($value->driver_name); ?> Vehicle Number : <?= $value->vehicle_no; ?> </label>
     		<?php
     	}
     	?>
+    	<iframe src="https://www.google.com/maps/embed?pb=!1m26!1m12!1m3!1d3694035.99804947!2d73.73989324553663!3d25.288844550170566!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m11!3e6!4m3!3m2!1d22.136288999999998!2d75.626672!4m5!1s0x390d19ad4b932597%3A0x63da5f183450a87e!2sEweblabs%20Pvt.%20Ltd.!3m2!1d28.475457!2d77.06046099999999!5e0!3m2!1sen!2sin!4v1594554747832!5m2!1sen!2sin" width="430" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
   </div>
 
 </div>
@@ -126,7 +127,7 @@
 								<tr><td class="accepted">Messages	</td><td class="accepted"><?= $value->message; ?></td></tr>
 								<tr><td class="accepted">When Replied	</td><td class="accepted"><?= $value->when_required_date; ?></td></tr>
 								<?php
-									if($value->equiry_status =='Accepted')
+									if($value->enquiry_status =='Accepted')
 									{
 										if($this->session->userdata('user_type')=='vendor')
 										{
@@ -134,7 +135,7 @@
 								<tr>
 									<td class="accepted">Offer is accepted</td>
 									<td class="accepted">
-											<button type="button" class="btn btn-info btn-xs waves-effect waves-light" data-toggle="tooltip" title="Assign Driver" value="<?php echo $value->reference_id; ?>"  id="myBtn">Assign Driver </button>
+											<button type="button" class="btn btn-info btn-xs waves-effect waves-light" data-toggle="tooltip" title="Assign Driver" value="<?php echo $value->reference_id; ?>"  id="myBtn">Reassigned driver </button>
 									</td>	
 								</tr>
 								<?php

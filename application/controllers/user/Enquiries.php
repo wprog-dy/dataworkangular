@@ -11,7 +11,6 @@ class Enquiries extends CI_Controller
         $this->load->library('form_validation');
         $this->load->model('Enquiries_model');
         $this->load->model('User_model');
-        $this->load->model('Driver_model');
 		
 		if(!$this->session->userdata('is_user_login')) 
 		{
@@ -43,16 +42,25 @@ class Enquiries extends CI_Controller
 	public function vendorreplay()
 	{
 		$customerid = $this->session->userdata('id');
-		$data['page_title'] = 'Vendor Replay';
+		$data['page_title'] = 'Reply';
 		$data['vendorreplay'] = $this->Enquiries_model->getVendorReplay($customerid);
 
 		$this->load->view('user/vwVendorReplay', $data);
+	}
+	public function vendorreplaycount()
+	{
+		$customerid = $this->session->userdata('id');
+		$count= $this->Enquiries_model->getVendorReplay($customerid);	
+		if(count($count) > 0)
+		{
+			echo count($count); die;
+		}
 	}
 	public function vendorReplyDetails($enquiry_id,$bitid)
 	{
 		$data['page_title'] = 'Vendor Replay Detail';
 		$data['vendorreplaydetail'] = $this->Enquiries_model->getVendorReplayDetail($enquiry_id,$bitid);
-		$data['driverValue'] = $this->Driver_model->get_drivers();
+		$data['driverValue'] = $this->Enquiries_model->getDrivers();
 		$this->load->view('user/vwVendorReplayDetail', $data);
 	}
 	public function orderSummary()
@@ -61,6 +69,15 @@ class Enquiries extends CI_Controller
 		$data['page_title'] = 'Order Summary';
 		$data['vendorreplay'] = $this->Enquiries_model->getOrderSummary($customerid);
 		$this->load->view('user/vwOrderSummary', $data);
+	}
+	public function ordersummarycount()
+	{
+		$customerid = $this->session->userdata('id');
+		$count= $this->Enquiries_model->getOrderSummary($customerid);
+		if(count($count) > 0)
+		{
+			echo count($count); die;
+		}
 	}
 	public function orderSummaryList($enquiry_id)
 	{
@@ -73,17 +90,17 @@ class Enquiries extends CI_Controller
 	{
 		$data['page_title'] = 'Order Summary Detail';
 		$data['vendorreplaydetail'] = $this->Enquiries_model->getVendorReplayDetail($enquiry_id,$bitid);
-		$data['driverValue'] = $this->Driver_model->get_drivers();
+		$data['driverValue'] = $this->Enquiries_model->getDrivers();
 		$this->load->view('user/vwVendorReplayDetail', $data);
 	}
-	public function enquiryVendorStatus($enquiry_id,$reference_id,$equiry_status,$bitid)
+	public function enquiryVendorStatus($enquiry_id,$reference_id,$enquiry_status,$bitid)
 	{
-		if($equiry_status == 'Pending')
+		if($enquiry_status == 'Pending')
 		{
-			$save['equiry_status'] = 'Accepted';	
+			$save['enquiry_status'] = 'Accepted';	
 		}	
 		$result = $this->Enquiries_model->updateEnquiryStatus($enquiry_id,$reference_id,$save,$bitid);
-		$this->session->set_flashdata('error', 'Enquiry Accepted');
+		$this->session->set_flashdata('message', 'Enquiry Accepted');
 		redirect("user/enquiries/orderSummarylist/$enquiry_id");
 	}
 	public function form($category_id,$id = false)

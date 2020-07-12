@@ -37,7 +37,7 @@
 								<td><?= $db_value->category_name; ?></td>
 								<td><?= $db_value->reference_id; ?></td>
 								<td><?= $db_value->replaied_date; ?></td>
-								<td><a class="page-link text-center"><?= $db_value->equiry_status; ?></a></td>
+								<td><a class="page-link text-center"><?= $db_value->enquiry_status; ?></a></td>
 								<td><a title="Order Detail" class="btn btn-sm btn-info" href="<?= base_url('user/enquiries/orderSummarylist/'.$db_value->enquiry_id); ?>"><i class="fa fa-eye"></i></a></td>
 								</a>
 							</tr>

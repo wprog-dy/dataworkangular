@@ -298,4 +298,24 @@ $(document).ready(function() {
 			e.preventDefault();
 		}
 	});
+	$.ajax({url: website_url+"user/vendor/vendorinboxcount", success: function(result)
+	{
+      	$('#countinbox').html(result);
+    }
+	});
+	$.ajax({url: website_url+"user/vendor/vendorrepliescount", success: function(result)
+	{
+      	$('#replyinbox').html(result);
+    }
+	});
+	$.ajax({url: website_url+"user/enquiries/vendorreplaycount", success: function(result)
+	{
+      	$('#vendorreplaycount').html(result);
+    }
+	});
+	$.ajax({url: website_url+"user/enquiries/ordersummarycount", success: function(result)
+	{
+      	$('#ordersummarycount').html(result);
+    }
+	});
 });

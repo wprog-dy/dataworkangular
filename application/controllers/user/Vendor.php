@@ -521,9 +521,16 @@ class Vendor extends CI_Controller {
 	{
 		$data['page_title'] = "Inbox";
 		$data['admin_setting_status'] = $this->Enquiries_model->chkSetting();
-		$data['dbValue'] = $this->Enquiries_model->getallEnquiries();
-		
+		$data['dbValue'] = $this->Enquiries_model->getallEnquiries();		
 		$this->load->view("user/vwVendorInbox",$data);
+	}
+	public function vendorinboxcount()
+	{
+		$count = $this->Enquiries_model->getallEnquiries();
+		if(count($count) > 0)
+		{
+			echo count($count); die;
+		}
 	}
 	public function vendorBit()
 	{
@@ -543,10 +550,18 @@ class Vendor extends CI_Controller {
 	}
 	public function vendorreplies()
 	{
-		$data['page_title'] = "Vendor Reply";
+		$data['page_title'] = "Reply";
 		$vendorid = $this->session->userdata('id');
-		$data['page_title'] = 'Vendor Replay';
 		$data['vendorreplies'] = $this->Enquiries_model->getVendorReplies($vendorid);
 		$this->load->view("user/vwVendorReplies",$data);
+	}
+	public function vendorrepliescount()
+	{
+		$vendorid = $this->session->userdata('id');
+		$count = $this->Enquiries_model->getVendorReplies($vendorid);
+		if(count($count) > 0)
+		{
+			echo count($count); die;
+		}
 	}
 }

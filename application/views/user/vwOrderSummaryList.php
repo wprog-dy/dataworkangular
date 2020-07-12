@@ -44,14 +44,14 @@
 								<td></td>
 								<td><?= $db_value->rate_per_unit; ?></td>
 								<td><a href="">Reply</a></td>
-								<td><a class="page-link text-center"><?= $db_value->equiry_status; ?></a></td>
+								<td><a class="page-link text-center"><?= $db_value->enquiry_status; ?></a></td>
 								<td><a title="Vendor Reply Details" class="btn btn-sm btn-info" href="<?= base_url('user/enquiries/ordersummarydetails/'.$db_value->enquiry_id.'/'.$db_value->bitid) ?>"><i class="fa fa-eye"></i></a>
 									<?php
-									if($db_value->equiry_status != 'Accepted')
+									if($db_value->enquiry_status != 'Accepted')
 									{
 										?>
 									<div class="float-right">
-										<a class="btn btn-sm btn-primary" href="<?= base_url('user/enquiries/enquiryvendorstatus/'.$db_value->enquiry_id.'/'.$db_value->reference_id.'/'.$db_value->equiry_status.'/'.$db_value->bitid) ?>">Accept</a>
+										<a class="btn btn-sm btn-primary" href="<?= base_url('user/enquiries/enquiryvendorstatus/'.$db_value->enquiry_id.'/'.$db_value->reference_id.'/'.$db_value->enquiry_status.'/'.$db_value->bitid) ?>">Accept</a>
 									</div>
 									<?php
 								}

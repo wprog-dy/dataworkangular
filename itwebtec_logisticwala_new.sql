@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 11, 2020 at 12:49 PM
+-- Generation Time: Jul 12, 2020 at 01:54 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -409,7 +409,7 @@ CREATE TABLE `enquiries` (
   `with_without` varchar(255) NOT NULL,
   `admin_setting_status` int(11) NOT NULL COMMENT 'automatic =>0, manual=>1',
   `assign_vendor_ids` varchar(100) NOT NULL,
-  `equiry_status` varchar(100) NOT NULL COMMENT 'Pending,Accepted,Cancel',
+  `enquiry_status` varchar(100) NOT NULL DEFAULT 'Pending' COMMENT 'Pending,Accepted,Cancel',
   `status` int(11) NOT NULL DEFAULT '1' COMMENT '	0=>inactive, 1=>active',
   `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modify_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
@@ -419,7 +419,7 @@ CREATE TABLE `enquiries` (
 -- Dumping data for table `enquiries`
 --
 
-INSERT INTO `enquiries` (`id`, `category_id`, `reference_id`, `customerid`, `origin_city`, `destination_city`, `when_required_date`, `when_required_time`, `type_of_transaction`, `type_of_load`, `industry_type`, `product_commodities`, `approx_weight_kg`, `volume_weight`, `no_of_packets`, `pickup_address`, `drop_address`, `specific_requirement`, `area`, `area_dimension`, `location`, `whatsapp_no`, `type_of_warehouse`, `services`, `city`, `state`, `country`, `name`, `contact_no`, `email`, `expected_rate_sqr_feet`, `shed_requirement`, `area_required`, `street_1`, `street_2`, `town`, `district`, `pincode`, `photo_front`, `photo_inside`, `photo_back`, `photo_side`, `min_lockin_period`, `dedicated_and_shared`, `other_services_provide`, `available_for`, `tentative_price_sqr_feet`, `currency_id`, `my_expected_freight`, `type_of_service`, `dimension`, `target_pricing`, `wishtomove`, `mode_of_transport`, `starttime`, `closingtime`, `vendor_based_post`, `type_of_product`, `product_requirement`, `essential_requirement`, `volume_or_dense`, `no_of_vehicles`, `container_type`, `type_of_vehicle`, `my_expect_freight`, `tentation_rate_Kg_in_USD`, `expertise_of_industries`, `port_airport_in_india`, `my_expected_charges_shipment`, `vehicle_placement_location`, `company_name`, `origin_pincode`, `destination_pincode`, `your_national`, `national_value`, `national_weight`, `scheduling_type`, `product`, `weight`, `days`, `pickup_date`, `freight`, `paymentterms_percentage`, `reporting_time`, `daily_hour`, `monthly_km`, `with_without`, `admin_setting_status`, `assign_vendor_ids`, `equiry_status`, `status`, `created_date`, `modify_date`) VALUES
+INSERT INTO `enquiries` (`id`, `category_id`, `reference_id`, `customerid`, `origin_city`, `destination_city`, `when_required_date`, `when_required_time`, `type_of_transaction`, `type_of_load`, `industry_type`, `product_commodities`, `approx_weight_kg`, `volume_weight`, `no_of_packets`, `pickup_address`, `drop_address`, `specific_requirement`, `area`, `area_dimension`, `location`, `whatsapp_no`, `type_of_warehouse`, `services`, `city`, `state`, `country`, `name`, `contact_no`, `email`, `expected_rate_sqr_feet`, `shed_requirement`, `area_required`, `street_1`, `street_2`, `town`, `district`, `pincode`, `photo_front`, `photo_inside`, `photo_back`, `photo_side`, `min_lockin_period`, `dedicated_and_shared`, `other_services_provide`, `available_for`, `tentative_price_sqr_feet`, `currency_id`, `my_expected_freight`, `type_of_service`, `dimension`, `target_pricing`, `wishtomove`, `mode_of_transport`, `starttime`, `closingtime`, `vendor_based_post`, `type_of_product`, `product_requirement`, `essential_requirement`, `volume_or_dense`, `no_of_vehicles`, `container_type`, `type_of_vehicle`, `my_expect_freight`, `tentation_rate_Kg_in_USD`, `expertise_of_industries`, `port_airport_in_india`, `my_expected_charges_shipment`, `vehicle_placement_location`, `company_name`, `origin_pincode`, `destination_pincode`, `your_national`, `national_value`, `national_weight`, `scheduling_type`, `product`, `weight`, `days`, `pickup_date`, `freight`, `paymentterms_percentage`, `reporting_time`, `daily_hour`, `monthly_km`, `with_without`, `admin_setting_status`, `assign_vendor_ids`, `enquiry_status`, `status`, `created_date`, `modify_date`) VALUES
 (4, 2, 'LW-5f08b05d61cfb', 26, 'bhopal123', 'indore', '2020-07-02', '18:32', 'One Time', 'Parcel', 'General', '23', '12', '', '12', '$category_id$category_id$category_id', 'An example of a long word is: Supercalifragulistic', 'An example of a long word is: Supercalifragulistic', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '0', 'Pending', 1, '2020-06-30 13:12:08', '2020-07-11 09:52:22'),
 (5, 2, 'LW-5f08b05d61cfc', 26, 'bhopal', 'indore', '2020-07-02', '18:32', 'One Time', 'Parcel', 'General', '23', '12', '', '12', '$category_id$category_id$category_id', 'An example of a long word is: Supercalifragulistic', 'An example of a long word is: Supercalifragulistic', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '0', 'Pending', 1, '2020-06-30 13:12:18', '2020-07-11 09:52:22'),
 (6, 5, 'LW-5f08b05d61cfd', 26, '', '', '', '', '', '', '', '', '', '', '', '', '', 'An example of a long word is: Supercalifragulistic', 'ksnfklsna3211', 'ddafndsjn', 'asdfdafs', '9754968659', 'RCC/ Alabaster,Kirby,Open to Sky,Select all,', 'Storage,Transportation,Other,Select all,', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '0', 'Pending', 1, '2020-06-30 15:09:31', '2020-07-11 09:52:22'),
@@ -432,7 +432,8 @@ INSERT INTO `enquiries` (`id`, `category_id`, `reference_id`, `customerid`, `ori
 (15, 18, 'LW-5f08b05d61cfk', 26, 'sdfadfd', 'dsfsd', '', '', 'Repeat', '', '', 'sdfdsf', '3515', '', '45', 'sindhi  coloy indore', 'indore', 'fghfghgfhvmkjkjhkh', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', 'sdfdsfds', '', '', '2020-07-03', '2020-07-10', '{\"vendor_based_post\":\"1\",\"turnover_of_company\":\"fgfh654654\",\"businessyear\":\"gfhgfhfgh\"}', 'High Value Product like (Gold / Platinum/ Silver Jewellery/ with in city time definit deliveries)', '', '', 'Volume', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '0', 'Pending', 1, '2020-07-02 14:08:24', '2020-07-11 09:52:22'),
 (17, 19, 'LW-5f08b05d61cfl', 26, 'fdhfgh', 'fghgfh', '', '', '', '', 'General', 'gfhgfhfg', '321', '', '555', 'sindhi  coloy indore', 'indore', 'fsdfds', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '2020-07-02', '2020-07-10', '{\"vendor_based_post\":\"1\",\"post_vendor\":\"sadsads\",\"turnover_of_company\":\"dds\",\"businessyear\":\"fsdfds\"}', '', 'Odd Size', 'gfhgfhgf', 'Volume', '555', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '0', 'Pending', 1, '2020-07-02 15:19:36', '2020-07-11 09:52:22'),
 (20, 28, 'LW-5f08b05d61cfm', 26, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '[\"1212\"]', '', '[\"Champion\"]', '', '', '', '', '', 'vfghfgh', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '[\"12\"]', '[\"1212\"]', '[\"With Helper\"]', 1, '18,', 'Pending', 1, '2020-07-09 08:27:59', '2020-07-11 09:52:22'),
-(22, 26, 'LW-5f08b05d61cfa', 26, 'asdsf', 'sdfdsf,sdfsdfsd,', '2020-07-10', '12:39', '', '', '', '', '', '', '', '', '', 'dgdfg\r\n kjbvdjlfvb sd\r\ndvndv df\r\ndf\' bd\'f\r\nbd\r\ndfb \r\nv', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'One Time', 'sdfdsf', '232', '', '', 'Fixed', '{\"advance_per\":\"23\"}', '', '', '', '', 1, '25,', 'Accepted', 1, '2020-07-10 07:09:46', '2020-07-11 10:45:04');
+(22, 26, 'LW-5f08b05d61cfa', 26, 'asdsf', 'sdfdsf,sdfsdfsd,', '2020-07-10', '12:39', '', '', '', '', '', '', '', '', '', 'dgdfg\r\n kjbvdjlfvb sd\r\ndvndv df\r\ndf\' bd\'f\r\nbd\r\ndfb \r\nv', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'One Time', 'sdfdsf', '232', '', '', 'Fixed', '{\"advance_per\":\"23\"}', '', '', '', '', 1, '25,', 'Accepted', 1, '2020-07-10 07:09:46', '2020-07-11 10:45:04'),
+(25, 2, 'LW-5f0aec3c671db', 26, 'asdasd', 'Indore', '2020-07-13', '16:25', 'One Time', 'Parcel', 'General', 'asdas', '12', '', '12', 'sindhi  coloy indore', 'indore', 'xfdsfsd', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 0, '', 'Accepted', 1, '2020-07-12 10:55:56', '2020-07-12 11:12:00');
 
 -- --------------------------------------------------------
 
@@ -454,6 +455,22 @@ INSERT INTO `menu_master` (`id`, `menu_name`, `status`) VALUES
 (1, 'Manage Vendor', '1'),
 (2, 'Manage Customer', '1'),
 (3, 'Manage Create Trip', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `message_enquiry`
+--
+
+CREATE TABLE `message_enquiry` (
+  `id` int(11) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `sender_id` int(11) NOT NULL,
+  `reciver_id` int(11) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -594,7 +611,7 @@ CREATE TABLE `vehicles` (
 --
 
 INSERT INTO `vehicles` (`id`, `vendor_id`, `vehicle`, `vehicle_type`, `vehicle_type_mention`, `owner_name`, `registering_authority`, `vehicle_class`, `fuel_type`, `registration_date`, `fitness_valid_upto`, `insurance_valid_upto`, `tax_valid_upto`, `pucc_valid_upto`, `vehicle_no`, `vehicle_images`, `vehicle_important_images`, `assign_driver_id`, `status`, `created_date`, `modify_date`) VALUES
-(3, 18, 'dfhgfh', 'Open Body', '', 'fghfghfg', 'hfghfghfgh', 'fghfghfghfg', 'fghfghfgh', '2020-06-22', 'fghfgh', 'fghfghfgh', 'gfhfgh', 'fghfghfgh', 'fghgfhfghfg', '[\"71b70496568ebc9ebf7dcf82663789b6.png\",\"fa18d565e147b607933aab0bc5bff9ad.jpg\",\"27a25456e5ffaec424044cd3cff921f8.pdf\"]', '[\"dd6a9197ac3b2baf510fe55cf0726eda.jpg\",\"0561bafe80a9dc20e0c48d76d336d0e1.pdf\",\"0e99c96cebd48e413ca9ac9c55689239.png\"]', 22, 1, '2020-06-23 08:23:11', '2020-07-09 12:02:23'),
+(3, 18, 'dfhgfh', 'Open Body', '', 'fghfghfg', 'hfghfghfgh', 'fghfghfghfg', 'fghfghfgh', '2020-06-22', 'fghfgh', 'fghfghfgh', 'gfhfgh', 'fghfghfgh', '3214', '[\"71b70496568ebc9ebf7dcf82663789b6.png\",\"fa18d565e147b607933aab0bc5bff9ad.jpg\",\"27a25456e5ffaec424044cd3cff921f8.pdf\"]', '[\"dd6a9197ac3b2baf510fe55cf0726eda.jpg\",\"0561bafe80a9dc20e0c48d76d336d0e1.pdf\",\"0e99c96cebd48e413ca9ac9c55689239.png\"]', 22, 1, '2020-06-23 08:23:11', '2020-07-12 11:50:22'),
 (4, 25, 'ASA', 'Closed Container Body', '', 'SASA', 'ASASA', 'SAS', 'ASAS', '2020-07-10', 'ASAS', 'ASAS', 'SA', 'ASASA', 'SASAS', '[\"f2c417dfe11534c4e2e55aad21545a4e.JPG\"]', '[\"e3a1a09297eaefbc9516efce0b40aacc.JPG\"]', 0, 1, '2020-07-10 06:45:53', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
@@ -609,7 +626,7 @@ CREATE TABLE `vendor_enquiry_bit` (
   `reference_id` varchar(100) NOT NULL,
   `customerid` int(11) NOT NULL,
   `category_id` int(11) NOT NULL,
-  `equiry_status` varchar(100) NOT NULL DEFAULT 'Pending' COMMENT 'Pending,Accepted,Cancel',
+  `enquiry_status` varchar(100) NOT NULL DEFAULT 'Pending' COMMENT 'Pending,Accepted,Cancel',
   `enquiry_id` int(11) NOT NULL,
   `enquiry_detail` longtext NOT NULL,
   `rate_per_unit` varchar(255) NOT NULL,
@@ -626,9 +643,10 @@ CREATE TABLE `vendor_enquiry_bit` (
 -- Dumping data for table `vendor_enquiry_bit`
 --
 
-INSERT INTO `vendor_enquiry_bit` (`id`, `vendor_id`, `reference_id`, `customerid`, `category_id`, `equiry_status`, `enquiry_id`, `enquiry_detail`, `rate_per_unit`, `validity`, `credit_term`, `message`, `assign_driver_id`, `status`, `created_date`, `modify_date`) VALUES
+INSERT INTO `vendor_enquiry_bit` (`id`, `vendor_id`, `reference_id`, `customerid`, `category_id`, `enquiry_status`, `enquiry_id`, `enquiry_detail`, `rate_per_unit`, `validity`, `credit_term`, `message`, `assign_driver_id`, `status`, `created_date`, `modify_date`) VALUES
 (10, 25, 'LW-5f08b05d61cfa', 26, 26, 'Pending', 22, '', '121', '1ssdfds', 'sddfdsf', 'sdfdsfdsf', 22, 1, '2020-07-10 07:13:31', '2020-07-11 10:42:39'),
-(11, 25, 'LW-5f08b05d61cfa', 26, 26, 'Accepted', 22, '', '12', '2020-07-10', 'asdasdas', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 0, 1, '2020-07-10 18:15:57', '2020-07-11 10:45:04');
+(11, 25, 'LW-5f08b05d61cfa', 26, 26, 'Accepted', 22, '', '12', '2020-07-10', 'asdasdas', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.', 22, 1, '2020-07-10 18:15:57', '2020-07-12 06:56:34'),
+(15, 25, 'LW-5f0aec3c671db', 26, 2, 'Accepted', 25, '', '12', '2020-07-13', '12', 'AFDAF', 22, 1, '2020-07-12 10:58:03', '2020-07-12 11:38:49');
 
 --
 -- Indexes for dumped tables
@@ -671,6 +689,12 @@ ALTER TABLE `menu_master`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `id` (`id`),
   ADD UNIQUE KEY `id_2` (`id`);
+
+--
+-- Indexes for table `message_enquiry`
+--
+ALTER TABLE `message_enquiry`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `role`
@@ -728,13 +752,19 @@ ALTER TABLE `drivers`
 -- AUTO_INCREMENT for table `enquiries`
 --
 ALTER TABLE `enquiries`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `menu_master`
 --
 ALTER TABLE `menu_master`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `message_enquiry`
+--
+ALTER TABLE `message_enquiry`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `role`
@@ -764,7 +794,7 @@ ALTER TABLE `vehicles`
 -- AUTO_INCREMENT for table `vendor_enquiry_bit`
 --
 ALTER TABLE `vendor_enquiry_bit`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
