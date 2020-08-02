@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 12, 2020 at 01:54 PM
+-- Generation Time: Aug 02, 2020 at 03:12 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.2
 
@@ -84,6 +84,32 @@ CREATE TABLE `ci_sessions` (
   `last_activity` int(10) UNSIGNED NOT NULL DEFAULT '0',
   `user_data` text COLLATE utf8_unicode_ci
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `user_type` varchar(100) NOT NULL COMMENT 'vendor or customer',
+  `userid` int(11) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` varchar(255) NOT NULL,
+  `attachment` varchar(255) NOT NULL,
+  `status` int(11) NOT NULL DEFAULT '1',
+  `created_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modify_date` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' ON UPDATE CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `contact`
+--
+
+INSERT INTO `contact` (`id`, `user_type`, `userid`, `subject`, `message`, `attachment`, `status`, `created_date`, `modify_date`) VALUES
+(8, 'customer', 26, 'asdsa', 'dasdasd', 'aa56ac072b0553222da95161b5438e9e.jpg', 1, '2020-08-02 09:42:00', '0000-00-00 00:00:00'),
+(9, 'vendor', 25, 'ssss', 'dsfdsfsd', 'ed47ab7bf47faf23968d3e9056d8adf5.jpg', 1, '2020-08-02 11:50:09', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -549,6 +575,9 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `verification_docs` text,
   `user_type` varchar(20) NOT NULL COMMENT 'vendor, customer',
+  `adhar_card_img` varchar(255) NOT NULL,
+  `driving_linces_img` varchar(255) NOT NULL,
+  `other_docs` varchar(255) NOT NULL,
   `status` enum('0','1') NOT NULL DEFAULT '1' COMMENT '0=>inactive, 1=>active',
   `featured` enum('0','1') NOT NULL DEFAULT '1' COMMENT '0=>not featured; 1=>featured'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -557,24 +586,24 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `fullname`, `gst_certificate`, `pan_cart_image`, `email`, `login_code`, `phone`, `other_phone`, `landline`, `pancard_no`, `cancelled_cheque`, `director_id_roof`, `industry_type`, `additional_info`, `msme_certificate`, `main_services`, `services`, `city`, `contact_person`, `company_type`, `company_name`, `company_website`, `gst_no`, `business_years`, `password`, `verification_docs`, `user_type`, `status`, `featured`) VALUES
-(1, '', '', '', '', '', 'admin@gmail.com', '', '', NULL, NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', '', NULL, NULL, '', 'MTIzNDU2', '', 'admin', '1', '1'),
-(2, 'snc', '', '', '', '', 'snc@gmail.com', 'LWV001', '1234567890', '1111111111', '', 'ABCDE1234F', '', '', 'hola', 'fjfj', '', 'kfk', 'kfk', 'fkfk', 'kfk', 'Proprietorship', 'fjfj', '', 'snc', '1 year', 'MTIzNDU2', '[\"863b49b2e7ad2b0175a83055160e43f6.png\",\"bf798c138a298ba0175793b42d2910e8.jpg\"]', 'vendor', '1', '0'),
-(3, 'snc', '', '', '', '', 'snc@gmail.com1', '', '1234567891', '1111111111', '', 'ABCDE1234F', '', '', 'hola', 'fjfj', '', 'kfk', 'kfk', 'fkfk', 'kfk', 'Partnership', 'fjfj', '', '', '1 year', '123456', NULL, '', '1', '1'),
-(4, 'sonu', 'nigam', '', '', '', 'sonu@gmail.com', 'LWC001', '9876543210', '', '', 'MNOPQ1234R', '', '', 'film', NULL, '', '', '', 'mumbai', 'udit narayan', 'Pvt. Ltd.', 'ysrj', '', 'sonu', '5 years', 'MTIzNDU2', '[\"294c370b8c6859de696a4d1777b92b59.jpg\",\"c156b2a9802b0edb7ddb409b72d6d4b7.jpg\",\"bf8894ea8f1e1dfe09b6c293b2368219.xlsx\",\"5e72ab444398d6a78eb887189620ef26.sql\"]', 'customer', '1', '1'),
-(5, 'name', '', '', '', '', 'name@gmail.com', 'LWC002', '7418529630', '', '', 'ABCDE1234F', '', '', 'aa', NULL, '', '', '', 'aa', 'aa', 'Proprietorship', 'ff', 'http://www.fb.com', '', '18 years', 'MTIzNDU2', NULL, 'customer', '1', '1'),
-(6, 'Sachin', 'Tendulkar', '', '', '', 'sachin@gmail.com', 'LWC003', '6666666666', '', '2222222222', 'SACHI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Sports', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '1', '1'),
-(7, 'Sourav', 'Ganguly', '', '', '', 'sourav@gmail.com', 'LWC004', '4444444444', '1111111111', '', 'SOURA1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Sports', 'Britannia', '', 'Milo', '14 years', 'MTIzNDU2', NULL, 'customer', '1', '0'),
-(10, 'Anil', 'vendor', '', '', '', 'info@eweblabs.com', 'LWV004', '8527239178', '', '', 'DAFPS0250E', '', '', 'ITs', 'Test Description', '', 'IT ', 'Website development', 'Gurgaon', 'Anil singh', 'Pvt. Ltd.', 'Eweblabs PVT LTD', '', 'Anil', '10', 'MTIzNDU2', '[\"1a662e02653d38036e7356385d812da2.jpg\",\"4b715cb3db9596d7f0d95936b3382ad8.jpg\",\"3b97764ab79c26eb915f9a5c1f541598.png\"]', 'vendor', '1', '1'),
-(11, 'anil', 'singh', '', '', '', 'singhanil221@gmail.com', 'LWC005', '7539514568', '', '', 'DAFLK0250E', '', '', 'ITs', NULL, '', '', '', 'GURGAON', 'Mr. ANIL SINGH', 'Pvt. Ltd.', 'Eweblabs Pvt LTd', '', 'anil', '5', 'MTIzNDU2', '[\"e7bf7a12098a7468ec40b8c7db48df54.jpg\",\"714b6a8a4a7e210d17cc0af8a69ed483.jpg\",\"ea315a091effc5ea882291d9bba00a4a.png\"]', 'customer', '1', '1'),
-(12, 'Amit', 'Kumar', '', '', '', 'amit@adka.com', 'LWC006', '7536542585', '', '4582586586', 'AMITI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Sports', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '1', '1'),
-(13, 'Rakesh', 'Verma', '', '', '', 'rakesh@asda.com', 'LWC007', '4569523585', '123456856', '', 'KJHUJ1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Sports', 'Britannia', '', 'Milo', '14 years', 'MTIzNDU2', NULL, 'customer', '1', '0'),
-(16, 'Sachin', 'Tendulkar', '', '', '', 'sachin@cricket.com', 'LWC008', '6666666699', '', '2222222222', 'SACHI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Proprietorship', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '', '1'),
-(17, 'Sourav', 'Ganguly', '', '', '', 'sourav@cricket.com', 'LWC009', '4444444477', '1111111111', '', 'SOURA1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Partnership', 'Britannia', '', 'Sourav', '4 years', 'MTIzNDU2', '[\"e2431929ea61630feb576942c20b0cd9.jpg\"]', 'customer', '0', '1'),
-(18, 'Indira', 'Gandhi', '', '', '', 'indira@congress.com', 'LWV005', '1950195019', '1919191719', '', 'INDIR1234A', '', '', 'Politics', 'Rajiv', '', 'Prime Minister', 'Poverty', 'Allahabad', 'Jawahar Lal Nehru', 'Pvt. Ltd.', 'Priyanka Gandhi', '', '786786787', '6 months', 'MTIzNDU2', NULL, 'vendor', '0', '0'),
-(25, 'V', 'yadav', '', '[\"a3e029c45f74b9ff6190cec31c3e5bd3.png\"]', '[\"2d8e447e9d9357942cf1c110509d6b58.png\"]', 'dipesh9897@gmail.com', '', '9754968659', '', '', '', '[\"a65e7bd017a163d39ed2d8c547b5d50f.png\"]', '[\"c3a654454b0b6327954bac180fb5c355.png\"]', 'lknlknkln', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', '[\"0db4ffdde12f10d9b74ffd733056be73.png\"]', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', 'Indore', '9876543210', 'Partnership', 'Software Developer', '', 'dipesh', 'Software Developer', 'ZGlwZXNoQDMyMQ==', NULL, 'vendor', '1', '1'),
-(26, 'C', 'yadav', '', '[\"a8f315d1187a2e934be2751c22d031c9.png\"]', '[\"337d5ddc0be3fd153241decd885d5c5f.png\"]', 'xyz@gmail.com', '', '9898765432', '', '9876543210', '', '', '', 'Load Provider', NULL, '', '', '', 'Indore', '9876543210', 'Proprietorship', 'Software Developer', '', '', '1', 'ZGlwZXNoQDMyMQ==', NULL, 'customer', '1', '1'),
-(27, '', NULL, '', '', '', 'dipesh989gg7@gmail.com', '', '9754968651', NULL, NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', '', NULL, NULL, '', 'ZGlwZXNo', NULL, 'customer', '1', '1');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `fullname`, `gst_certificate`, `pan_cart_image`, `email`, `login_code`, `phone`, `other_phone`, `landline`, `pancard_no`, `cancelled_cheque`, `director_id_roof`, `industry_type`, `additional_info`, `msme_certificate`, `main_services`, `services`, `city`, `contact_person`, `company_type`, `company_name`, `company_website`, `gst_no`, `business_years`, `password`, `verification_docs`, `user_type`, `adhar_card_img`, `driving_linces_img`, `other_docs`, `status`, `featured`) VALUES
+(1, '', '', '', '', '', 'admin@gmail.com', '', '', NULL, NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', '', NULL, NULL, '', 'MTIzNDU2', '', 'admin', '', '', '', '1', '1'),
+(2, 'snc', '', '', '', '', 'snc@gmail.com', 'LWV001', '1234567890', '1111111111', '', 'ABCDE1234F', '', '', 'hola', 'fjfj', '', 'kfk', 'kfk', 'fkfk', 'kfk', 'Proprietorship', 'fjfj', '', 'snc', '1 year', 'MTIzNDU2', '[\"863b49b2e7ad2b0175a83055160e43f6.png\",\"bf798c138a298ba0175793b42d2910e8.jpg\"]', 'vendor', '', '', '', '1', '0'),
+(3, 'snc', '', '', '', '', 'snc@gmail.com1', '', '1234567891', '1111111111', '', 'ABCDE1234F', '', '', 'hola', 'fjfj', '', 'kfk', 'kfk', 'fkfk', 'kfk', 'Partnership', 'fjfj', '', '', '1 year', '123456', NULL, '', '', '', '', '1', '1'),
+(4, 'sonu', 'nigam', '', '', '', 'sonu@gmail.com', 'LWC001', '9876543210', '', '', 'MNOPQ1234R', '', '', 'film', NULL, '', '', '', 'mumbai', 'udit narayan', 'Pvt. Ltd.', 'ysrj', '', 'sonu', '5 years', 'MTIzNDU2', '[\"294c370b8c6859de696a4d1777b92b59.jpg\",\"c156b2a9802b0edb7ddb409b72d6d4b7.jpg\",\"bf8894ea8f1e1dfe09b6c293b2368219.xlsx\",\"5e72ab444398d6a78eb887189620ef26.sql\"]', 'customer', '', '', '', '1', '1'),
+(5, 'name', '', '', '', '', 'name@gmail.com', 'LWC002', '7418529630', '', '', 'ABCDE1234F', '', '', 'aa', NULL, '', '', '', 'aa', 'aa', 'Proprietorship', 'ff', 'http://www.fb.com', '', '18 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '1', '1'),
+(6, 'Sachin', 'Tendulkar', '', '', '', 'sachin@gmail.com', 'LWC003', '6666666666', '', '2222222222', 'SACHI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Sports', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '1', '1'),
+(7, 'Sourav', 'Ganguly', '', '', '', 'sourav@gmail.com', 'LWC004', '4444444444', '1111111111', '', 'SOURA1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Sports', 'Britannia', '', 'Milo', '14 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '1', '0'),
+(10, 'Anil', 'vendor', '', '', '', 'info@eweblabs.com', 'LWV004', '8527239178', '', '', 'DAFPS0250E', '', '', 'ITs', 'Test Description', '', 'IT ', 'Website development', 'Gurgaon', 'Anil singh', 'Pvt. Ltd.', 'Eweblabs PVT LTD', '', 'Anil', '10', 'MTIzNDU2', '[\"1a662e02653d38036e7356385d812da2.jpg\",\"4b715cb3db9596d7f0d95936b3382ad8.jpg\",\"3b97764ab79c26eb915f9a5c1f541598.png\"]', 'vendor', '', '', '', '1', '1'),
+(11, 'anil', 'singh', '', '', '', 'singhanil221@gmail.com', 'LWC005', '7539514568', '', '', 'DAFLK0250E', '', '', 'ITs', NULL, '', '', '', 'GURGAON', 'Mr. ANIL SINGH', 'Pvt. Ltd.', 'Eweblabs Pvt LTd', '', 'anil', '5', 'MTIzNDU2', '[\"e7bf7a12098a7468ec40b8c7db48df54.jpg\",\"714b6a8a4a7e210d17cc0af8a69ed483.jpg\",\"ea315a091effc5ea882291d9bba00a4a.png\"]', 'customer', '', '', '', '1', '1'),
+(12, 'Amit', 'Kumar', '', '', '', 'amit@adka.com', 'LWC006', '7536542585', '', '4582586586', 'AMITI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Sports', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '1', '1'),
+(13, 'Rakesh', 'Verma', '', '', '', 'rakesh@asda.com', 'LWC007', '4569523585', '123456856', '', 'KJHUJ1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Sports', 'Britannia', '', 'Milo', '14 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '1', '0'),
+(16, 'Sachin', 'Tendulkar', '', '', '', 'sachin@cricket.com', 'LWC008', '6666666699', '', '2222222222', 'SACHI1234N', '', '', 'Cricket', NULL, '', '', '', 'Mumbai', 'Anjali Tendulkar', 'Proprietorship', 'MRF', '', 'Boost', '16 years', 'MTIzNDU2', NULL, 'customer', '', '', '', '', '1'),
+(17, 'Sourav', 'Ganguly', '', '', '', 'sourav@cricket.com', 'LWC009', '4444444477', '1111111111', '', 'SOURA1234V', '', '', 'Cricket', NULL, '', '', '', 'Kolkata', 'Dona Ganguly', 'Partnership', 'Britannia', '', 'Sourav', '4 years', 'MTIzNDU2', '[\"e2431929ea61630feb576942c20b0cd9.jpg\"]', 'customer', '', '', '', '0', '1'),
+(18, 'Indira', 'Gandhi', '', '', '', 'indira@congress.com', 'LWV005', '1950195019', '1919191719', '', 'INDIR1234A', '', '', 'Politics', 'Rajiv', '', 'Prime Minister', 'Poverty', 'Allahabad', 'Jawahar Lal Nehru', 'Pvt. Ltd.', 'Priyanka Gandhi', '', '786786787', '6 months', 'MTIzNDU2', NULL, 'vendor', '', '', '', '0', '0'),
+(25, 'V', 'yadav', '', '[\"a3e029c45f74b9ff6190cec31c3e5bd3.png\"]', '[\"2d8e447e9d9357942cf1c110509d6b58.png\"]', 'dipesh9897@gmail.com', '', '9754968659', '', '', '', '[\"a65e7bd017a163d39ed2d8c547b5d50f.png\"]', '[\"c3a654454b0b6327954bac180fb5c355.png\"]', 'lknlknkln', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', '[\"0db4ffdde12f10d9b74ffd733056be73.png\"]', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', 'Reference site about Lorem Ipsum, giving information on its origins, as well as a random Lipsum generator.', 'Indore', '9876543210', 'Partnership', 'Software Developer', '', 'V', 'Software Developer', 'ZGlwZXNoQDMyMQ==', NULL, 'vendor', '[\"5d27ab0549dd22736503571d37bab97e.jpg\"]', '', '', '1', '1'),
+(26, 'C', 'yadav', '', '[\"a8f315d1187a2e934be2751c22d031c9.png\"]', '[\"337d5ddc0be3fd153241decd885d5c5f.png\"]', 'xyz@gmail.com', '', '9898765432', '', '9876543210', '', '', '', 'Load Provider', NULL, '', '', '', 'Indore', '9876543210', 'Proprietorship', 'Software Developer', '', 'C', '1', 'ZGlwZXNoQDMyMQ==', NULL, 'customer', '[\"84ecca53fc2a5fdc9a5fe4e04c137953.jpg\"]', '', '', '1', '1'),
+(27, '', NULL, '', '', '', 'dipesh989gg7@gmail.com', '', '9754968651', NULL, NULL, '', '', '', NULL, NULL, '', '', '', '', '', '', '', NULL, NULL, '', 'ZGlwZXNo', NULL, 'customer', '', '', '', '1', '1');
 
 -- --------------------------------------------------------
 
@@ -665,6 +694,12 @@ ALTER TABLE `ci_sessions`
   ADD PRIMARY KEY (`session_id`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `currencies`
 --
 ALTER TABLE `currencies`
@@ -735,6 +770,12 @@ ALTER TABLE `vendor_enquiry_bit`
 --
 ALTER TABLE `categories`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `currencies`

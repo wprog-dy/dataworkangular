@@ -34,7 +34,17 @@ Class User_model extends CI_Model
 		}
 		return $id;
 	}
-	
+	function save_contact($save)
+	{
+		$this->db->insert('contact', $save);
+		$id	= $this->db->insert_id();
+		return $id;
+	}
+	function allcontact($user_type)
+    {
+		$query = $this->db->join('users','users.id=contact.userid')->get_where('contact', array('contact.user_type'=>$user_type))->result();
+		return $query;
+    }
 	function get_user($id){
 		
 		$query = $this->db->get_where('users', array('id'=>$id))->row();

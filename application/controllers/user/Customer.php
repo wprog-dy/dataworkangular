@@ -99,13 +99,17 @@ class Customer extends CI_Controller {
 			$data['verification_docs']  = $dbValue->verification_docs;
 			$data['gst_certificate']  	= $dbValue->gst_certificate;
 			$data['pan_cart_image']  	= $dbValue->pan_cart_image;
+			$data['adhar_card_img']  	= $dbValue->adhar_card_img;
+			$data['driving_linces_img'] = $dbValue->driving_linces_img;
+			$data['other_docs']  = $dbValue->other_docs;
 		}
 		
 		//Validate the form
 		// if($this->form_validation->run() == false)
 		if(!$this->input->post())
 		{	
-			$this->load->view('user/vwCustomerForm', $data);		}
+			$this->load->view('user/vwCustomerForm', $data);		
+		}
 		else
 		{	
 			$save = array();
@@ -311,10 +315,179 @@ class Customer extends CI_Controller {
 					}  
 					$save['pan_cart_image'] = json_encode($uploaded_file2);
 				}
+				$filesArr3 = array_filter($_FILES['adhar_card_img']['name']);
+			
+				if(!empty($filesArr3))
+				{	
+				
+					if($id && !empty($data['adhar_card_img'])){
+						foreach(json_decode($data['adhar_card_img']) as $prevFile){
+							$uploaded_file3[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr3 as $file3)
+					{
+						$_FILES['user_file']['name']     = $_FILES['adhar_card_img']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['adhar_card_img']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['adhar_card_img']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['adhar_card_img']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['adhar_card_img']['size'][$i];
+
+						$fieldname3 = 'user_file';
+						$filename3 = $file3;
+						$path3 = 'customer/';
+						$config['upload_path']          = "./uploads/$path3";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname3))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data3 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data3['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file3[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['adhar_card_img'] = json_encode($uploaded_file3);
+				}
+				$filesArr4 = array_filter($_FILES['driving_linces_img']['name']);
+			
+				if(!empty($filesArr4))
+				{	
+				
+					if($id && !empty($data['driving_linces_img'])){
+						foreach(json_decode($data['driving_linces_img']) as $prevFile){
+							$uploaded_file4[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr4 as $file4)
+					{
+						$_FILES['user_file']['name']     = $_FILES['driving_linces_img']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['driving_linces_img']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['driving_linces_img']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['driving_linces_img']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['driving_linces_img']['size'][$i];
+
+						$fieldname4 = 'user_file';
+						$filename4 = $file4;
+						$path4 = 'customer/';
+						$config['upload_path']          = "./uploads/$path4";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname4))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data4 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data4['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file4[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['driving_linces_img'] = json_encode($uploaded_file4);
+				}
+				$filesArr5 = array_filter($_FILES['other_docs']['name']);
+			
+				if(!empty($filesArr5))
+				{	
+				
+					if($id && !empty($data['other_docs'])){
+						foreach(json_decode($data['other_docs']) as $prevFile){
+							$uploaded_file5[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr5 as $file5)
+					{
+						$_FILES['user_file']['name']     = $_FILES['other_docs']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['other_docs']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['other_docs']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['other_docs']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['other_docs']['size'][$i];
+
+						$fieldname5 = 'user_file';
+						$filename5 = $file5;
+						$path5 = 'customer/';
+						$config['upload_path']          = "./uploads/$path5";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname5))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data5 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data5['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file5[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['other_docs'] = json_encode($uploaded_file5);
+				}
 			// print_r($save); die;
 			$dbId = $this->User_model->save_user($save);
 			
-			if(!$id){
+			if(!$id)
+			{
 				$update['id'] = $dbId;
 				$update['login_code'] = generate_loginCode('customer');
 				$this->User_model->save_user($update);
@@ -325,5 +498,16 @@ class Customer extends CI_Controller {
 			//go back to the product list
 			redirect("user/customer/form/$id");
 		}
+	}
+	public function toptenrateslanes()
+	{
+		$data['page_title'] = 'Top Ten Rates / Lanes';
+		$this->load->view('user/vwtopTenRatesLanes',$data);
+	}
+	public function complianceregularities($menuname = false)
+	{
+		$data['page_title'] = 'Compliance & Regularities';
+		$data['menuname'] = $menuname;
+		$this->load->view('user/wvComplianceRegularities',$data);
 	}
 }

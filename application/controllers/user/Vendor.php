@@ -114,6 +114,9 @@ class Vendor extends CI_Controller {
 			$data['cancelled_cheque']  	= $dbValue->cancelled_cheque;
 			$data['director_id_roof']  = $dbValue->director_id_roof;
 			$data['msme_certificate']  = $dbValue->msme_certificate;
+			$data['adhar_card_img']  	= $dbValue->adhar_card_img;
+			$data['driving_linces_img'] = $dbValue->driving_linces_img;
+			$data['other_docs']  = $dbValue->other_docs;
 		}
 		
 		//Validate the form
@@ -503,6 +506,174 @@ class Vendor extends CI_Controller {
 						}  
 						$save['msme_certificate'] = json_encode($uploaded_file5);
 					}
+				$filesArr6 = array_filter($_FILES['adhar_card_img']['name']);
+			
+				if(!empty($filesArr6))
+				{	
+				
+					if($id && !empty($data['adhar_card_img'])){
+						foreach(json_decode($data['adhar_card_img']) as $prevFile){
+							$uploaded_file6[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr6 as $file6)
+					{
+						$_FILES['user_file']['name']     = $_FILES['adhar_card_img']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['adhar_card_img']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['adhar_card_img']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['adhar_card_img']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['adhar_card_img']['size'][$i];
+
+						$fieldname6 = 'user_file';
+						$filename6 = $file6;
+						$path6 = 'vendor/';
+						$config['upload_path']          = "./uploads/$path6";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname6))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data6 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data6['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file6[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['adhar_card_img'] = json_encode($uploaded_file6);
+				}
+				$filesArr7 = array_filter($_FILES['driving_linces_img']['name']);
+			
+				if(!empty($filesArr7))
+				{	
+				
+					if($id && !empty($data['driving_linces_img'])){
+						foreach(json_decode($data['driving_linces_img']) as $prevFile){
+							$uploaded_file7[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr7 as $file7)
+					{
+						$_FILES['user_file']['name']     = $_FILES['driving_linces_img']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['driving_linces_img']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['driving_linces_img']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['driving_linces_img']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['driving_linces_img']['size'][$i];
+
+						$fieldname7 = 'user_file';
+						$filename7 = $file7;
+						$path7 = 'vendor/';
+						$config['upload_path']          = "./uploads/$path7";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname7))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data7 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data7['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file7[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['driving_linces_img'] = json_encode($uploaded_file7);
+				}
+				$filesArr8 = array_filter($_FILES['other_docs']['name']);
+			
+				if(!empty($filesArr8))
+				{	
+				
+					if($id && !empty($data['other_docs'])){
+						foreach(json_decode($data['other_docs']) as $prevFile){
+							$uploaded_file8[] = $prevFile;
+						}
+						// print_r($uploaded_file); echo '<br>';
+					}
+				
+					$i = 0;
+					foreach($filesArr8 as $file8)
+					{
+						$_FILES['user_file']['name']     = $_FILES['other_docs']['name'][$i];
+						$_FILES['user_file']['type']     = $_FILES['other_docs']['type'][$i];
+						$_FILES['user_file']['tmp_name'] = $_FILES['other_docs']['tmp_name'][$i];
+						$_FILES['user_file']['error']    = $_FILES['other_docs']['error'][$i];
+						$_FILES['user_file']['size']     = $_FILES['other_docs']['size'][$i];
+
+						$fieldname8 = 'user_file';
+						$filename8 = $file8;
+						$path8 = 'vendor/';
+						$config['upload_path']          = "./uploads/$path8";
+						$config['allowed_types']        = '*';
+						$config['remove_spaces'] 		= true;
+						$config['encrypt_name'] 		= true;
+						
+						$this->load->library('upload', $config);
+						$this->upload->initialize($config);
+						
+						if ( !$this->upload->do_upload($fieldname8))
+						{
+							$data['error'] = array('error' => $this->upload->display_errors());
+						}
+						else
+						{
+							$upload_data8 = $this->upload->data();
+							$data['uploaded_file_name'] = $upload_data8['file_name'];
+						}
+						############## ↑↑upload file library ###############
+						
+						if(!isset($data['error'])){
+							$uploaded_file8[] = $data['uploaded_file_name'];
+						}else{
+							$data['error'] = $data['error'];
+							$this->session->set_flashdata('fail', $data['error']);
+							redirect(base_url("user/customer/form/$id"));
+							die;
+						}
+						
+						$i++;
+					}  
+					$save['other_docs'] = json_encode($uploaded_file8);
+				}
 			// print_r($save); die;
 			$dbId = $this->User_model->save_user($save);
 			

@@ -117,7 +117,7 @@
 				if($this->session->userdata('user_type') == 'admin')
 					{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect" href="calendar.html"><i class="menu-icon mdi mdi-calendar-multiple"></i><span>Distance Report</span></a>
 				</li>
 				<?php
@@ -145,7 +145,7 @@
 				if($this->session->userdata('user_type') == 'admin')
 					{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fas fa-newspaper"></i><span>Newsletter</span><span class="menu-arrow fa fa-angle-down"></span></a>
 					<ul class="sub-menu js__content">
 						<li><a href="chart-3d.html">Add Newsletter</a></li>
@@ -157,7 +157,7 @@
 				if($this->session->userdata('user_type') == 'admin')
 					{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-list-alt" aria-hidden="true"></i><span>Suggestion</span><span class="menu-arrow fa fa-angle-down"></span></a>
 					<ul class="sub-menu js__content">
 						<li><a href="chart-3d.html">View Suggestion</a></li>
@@ -182,7 +182,7 @@
 				if($this->session->userdata('user_type') == 'customer')
 				{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-plus-circle"></i><span>Other Partner trips</span></a>
 				</li>
 				<?php
@@ -353,14 +353,19 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-gavel"></i><span>Compliance & Regularities</span></a>
+					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-plus-circle"></i><span>Compliance & Regularities</span><span class="menu-arrow fa fa-angle-down"></span></a>
+					<ul class="sub-menu js__content">
+						<li><a href="<?= base_url('user/customer/complianceregularities/domestic') ?>">Domestic(Road Permits)</a></li>
+						<li><a href="<?= base_url('user/customer/complianceregularities/custom') ?>">Custom Authorities</a></li>
+						<li><a href="#"> Compliance & Regularities </a></li>
+					</ul>
 				</li>
 				<?php
 				}
 				if(($this->session->userdata('user_type') == 'customer')||($this->session->userdata('user_type') == 'vendor'))
 				{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-history"></i><span>Transaction History</span></a>
 				</li>
 				<?php
@@ -368,7 +373,7 @@
 				if(($this->session->userdata('user_type') == 'customer')||($this->session->userdata('user_type') == 'vendor'))
 				{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-comments"></i><span>KYC Documents</span></a>
 				</li>
 				<?php
@@ -377,15 +382,27 @@
 				{
 				?>
 				<li>
-					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-percent"></i><span>Top Ten Rates/Lanes</span></a>
+					<a class="waves-effect" href="<?= base_url('user/Customer/toptenrateslanes')?>"><i class="menu-icon fa fa-percent"></i><span>Top Ten Rates/Lanes</span></a>
 				</li>
 				<?php
 				}
-				if($this->session->userdata('user_type') == 'vendor')
+				if(($this->session->userdata('user_type') == 'vendor')||($this->session->userdata('user_type') == 'customer'))
 				{
 				?>
 				<li>
-					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-percent"></i><span>Contact Us</span></a>
+					<a class="waves-effect" href="<?= base_url('user/Dashboard/contact') ?>"><i class="menu-icon fa fa-address-card"></i><span>Contact Us</span></a>
+				</li>
+				<?php
+				}
+				if($this->session->userdata('user_type') == 'admin')
+				{
+				?>
+				<li>
+					<a class="waves-effect parent-item js__control" href="#"><i class="menu-icon fa fa-plus-circle"></i><span>Contact</span><span class="menu-arrow fa fa-angle-down"></span></a>
+					<ul class="sub-menu js__content">
+						<li><a href="<?= base_url('user/Dashboard/admincontact/customer') ?>">Customer</a></li>
+						<li><a href="<?= base_url('user/Dashboard/admincontact/vendor') ?>">Vendor</a></li>
+					</ul>
 				</li>
 				<?php
 				}
@@ -393,7 +410,7 @@
 				if($this->session->userdata('user_type') == 'vendor')
 				{
 				?>
-				<li>
+				<li class="d-none">
 					<a class="waves-effect" href="#"><i class="menu-icon fa fa-percent"></i><span>Accept Load/ Enquiries</span></a>
 				</li>
 				<?php

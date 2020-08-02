@@ -9,7 +9,7 @@
 				<li>2019 © Eweblabs.</li>
 				<li><a href="#">Privacy</a></li>
 				<li><a href="#">Terms</a></li>
-				<li><a href="#">Help</a></li>
+				<li class="d-none"><a href="#">Help</a></li>
 			</ul>
 		</footer>
 		<?php

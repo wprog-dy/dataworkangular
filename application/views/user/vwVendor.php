@@ -16,7 +16,7 @@
   
 	<div class="row small-spacing">
 			<div class="col-12">
-				<div class="box-content">
+				<div class="box-content" style="overflow: overlay;">
 					<h4 class="box-title"><?php echo $page_title; ?>
 					<div class="float-right">
 						<a class="btn btn-sm btn-default" href="<?php echo base_url('user/common/import_excel/vendor');?>"><i class="fa fa-upload"></i> Import Vendors</a>

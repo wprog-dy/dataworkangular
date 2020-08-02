@@ -162,6 +162,7 @@ class Home extends CI_Controller {
     }
     public function do_admin_login()
     {
+    	$data['user_type'] = 'admin';
     	if ($this->session->userdata('is_user_login')) 
         {    
 			redirect('user/dashboard');

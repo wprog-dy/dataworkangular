@@ -9,7 +9,7 @@
           <section class="content">
       <div class="container-fluid">
         <div class="row">
-          <div class="col-md-3">
+          <div class="col-md-4">
 
             <!-- Profile Image -->
             <div class="card card-primary card-outline">
@@ -99,7 +99,7 @@
             <!-- /.card -->
           </div>
           <!-- /.col -->
-          <div class="col-md-9">
+          <div class="col-md-8">
             <div class="card">
               <div class="card-header p-2">
                 <ul class="nav nav-pills">

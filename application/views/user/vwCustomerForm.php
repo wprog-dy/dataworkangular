@@ -277,6 +277,153 @@
 								} 
 							?>
 						</div>
+						<div class="form-group pt-3 padding-20 col-lg-6">
+							<label for="adhar_card_img">Adhar card</label><br>
+							<input type="file" id="adhar_card_img" name="adhar_card_img[]" multiple>
+							
+							<?php 
+								$imageIcon 	= 'fa-file-image';
+								$pdfIcon 	= 'fa-file-pdf';
+								$docIcon 	= 'fa-file';
+								$excelIcon 	= 'fa-file-excel';
+								
+								if(($id) && !empty($adhar_card_img)){
+							?>
+								<div class="mt-1" style="display: flex; flex-wrap: wrap;">
+							<?php 
+									foreach(json_decode($adhar_card_img) as $dbFile){
+										$dbFileArr = explode('.', $dbFile);
+										$dbFileExtension = strtolower($dbFileArr[1]);
+										
+										switch ($dbFileExtension) {
+											case 'jpg':	
+											case 'jpeg':
+											case 'png':
+											case 'gif':
+											case 'webp':
+												$classIcon = $imageIcon;
+												break;
+											case 'pdf':	
+												$classIcon = $pdfIcon;
+												break;
+											case 'xls':
+											case 'xlsx':
+												$classIcon = $excelIcon;
+												break;
+											default:
+											   $classIcon = $docIcon;
+										}
+										
+							?>
+								<div class="mt-1" style="width: 15%;">
+									<a href="<?php echo base_url("uploads/customer/$dbFile");?>" download><i class="fa <?php echo $classIcon; ?>" aria-hidden="true" style="font-size: xx-large;"></i></a>
+								</div>
+							<?php 
+									}
+							?>
+							</div>
+							<?php 
+								} 
+							?>
+						</div>
+						<div class="form-group pt-3 padding-20 col-lg-6">
+							<label for="driving_linces_img">Driving linces</label><br>
+							<input type="file" id="driving_linces_img" name="driving_linces_img[]" multiple>
+							
+							<?php 
+								$imageIcon 	= 'fa-file-image';
+								$pdfIcon 	= 'fa-file-pdf';
+								$docIcon 	= 'fa-file';
+								$excelIcon 	= 'fa-file-excel';
+								
+								if(($id) && !empty($driving_linces_img)){
+							?>
+								<div class="mt-1" style="display: flex; flex-wrap: wrap;">
+							<?php 
+									foreach(json_decode($driving_linces_img) as $dbFile){
+										$dbFileArr = explode('.', $dbFile);
+										$dbFileExtension = strtolower($dbFileArr[1]);
+										
+										switch ($dbFileExtension) {
+											case 'jpg':	
+											case 'jpeg':
+											case 'png':
+											case 'gif':
+											case 'webp':
+												$classIcon = $imageIcon;
+												break;
+											case 'pdf':	
+												$classIcon = $pdfIcon;
+												break;
+											case 'xls':
+											case 'xlsx':
+												$classIcon = $excelIcon;
+												break;
+											default:
+											   $classIcon = $docIcon;
+										}
+										
+							?>
+								<div class="mt-1" style="width: 15%;">
+									<a href="<?php echo base_url("uploads/customer/$dbFile");?>" download><i class="fa <?php echo $classIcon; ?>" aria-hidden="true" style="font-size: xx-large;"></i></a>
+								</div>
+							<?php 
+									}
+							?>
+							</div>
+							<?php 
+								} 
+							?>
+						</div>
+						<div class="form-group pt-3 padding-20 col-lg-6">
+							<label for="other_docs">Other Docs</label><br>
+							<input type="file" id="other_docs" name="other_docs[]" multiple>
+							
+							<?php 
+								$imageIcon 	= 'fa-file-image';
+								$pdfIcon 	= 'fa-file-pdf';
+								$docIcon 	= 'fa-file';
+								$excelIcon 	= 'fa-file-excel';
+								
+								if(($id) && !empty($other_docs)){
+							?>
+								<div class="mt-1" style="display: flex; flex-wrap: wrap;">
+							<?php 
+									foreach(json_decode($other_docs) as $dbFile){
+										$dbFileArr = explode('.', $dbFile);
+										$dbFileExtension = strtolower($dbFileArr[1]);
+										
+										switch ($dbFileExtension) {
+											case 'jpg':	
+											case 'jpeg':
+											case 'png':
+											case 'gif':
+											case 'webp':
+												$classIcon = $imageIcon;
+												break;
+											case 'pdf':	
+												$classIcon = $pdfIcon;
+												break;
+											case 'xls':
+											case 'xlsx':
+												$classIcon = $excelIcon;
+												break;
+											default:
+											   $classIcon = $docIcon;
+										}
+										
+							?>
+								<div class="mt-1" style="width: 15%;">
+									<a href="<?php echo base_url("uploads/customer/$dbFile");?>" download><i class="fa <?php echo $classIcon; ?>" aria-hidden="true" style="font-size: xx-large;"></i></a>
+								</div>
+							<?php 
+									}
+							?>
+							</div>
+							<?php 
+								} 
+							?>
+						</div>
 						
 					</div>
 							
